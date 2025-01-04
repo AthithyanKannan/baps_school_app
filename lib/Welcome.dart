@@ -1,7 +1,7 @@
+import 'package:baps_school_app/Widgets/widgets.dart';
 import 'package:baps_school_app/colors.dart';
 import 'package:baps_school_app/login.dart';
 import 'package:flutter/material.dart';
-
 
 class Welcome extends StatefulWidget {
   const Welcome({super.key});
@@ -60,23 +60,15 @@ class _WelcomeState extends State<Welcome> {
               SizedBox(
                 height: 40,
               ),
-              ElevatedButton(
-                onPressed: () => {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Login(),))
-                },
-                style: ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll(buttonColor),
-                  padding: WidgetStatePropertyAll(
-                      EdgeInsets.symmetric(horizontal: 85, vertical: 12)),
-                  shape: WidgetStatePropertyAll(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)
-                    ),
-                  ),
-                ),
-                child: Text("LOGIN",
-                    style: TextStyle(color: Colors.white, letterSpacing: 1)),
-              )
+              customButton(
+                  text: "Let's start",
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Login(),
+                        ));
+                  })
             ],
           ),
         ],
