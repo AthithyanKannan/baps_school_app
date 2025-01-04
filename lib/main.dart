@@ -1,4 +1,4 @@
-import 'package:baps_school_app/Welcome.dart';
+import 'package:baps_school_app/welcome.dart';
 import 'package:flutter/material.dart';
 
 void main() {
