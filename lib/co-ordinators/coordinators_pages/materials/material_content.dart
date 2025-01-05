@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class ContentOfMaterials extends StatefulWidget {
   final String text;
-  const ContentOfMaterials({Key? key, required this.text}) : super(key: key);
+  const ContentOfMaterials({super.key, required this.text});
 
   @override
   State<ContentOfMaterials> createState() => _ContentOfMaterialsState();

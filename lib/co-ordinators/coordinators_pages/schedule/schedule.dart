@@ -1,4 +1,6 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
+import 'package:baps_school_app/co-ordinators/coordinators_pages/schedule/exam_schedule/exam_schedule.dart';
+import 'package:baps_school_app/co-ordinators/coordinators_pages/schedule/schedule_content.dart';
 import 'package:baps_school_app/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
@@ -82,17 +84,27 @@ class _ScheduleState extends State<Schedule>
         SizedBox(
           height: 20,
         ),
-        ScheduleCard(
-            title: "Academic Schedule",
-            color: Color.fromRGBO(201, 247, 245, 1),
-            icon: Icons.engineering),
+        GestureDetector(
+          onTap: () => {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ScheduleContent(),))
+          },
+          child: ScheduleCard(
+              title: "Academic Schedule",
+              color: Color.fromRGBO(201, 247, 245, 1),
+              icon: Icons.engineering),
+        ),
         SizedBox(
           height: 20,
         ),
-        ScheduleCard(
-            title: "Exam Schedule",
-            color: Color.fromRGBO(232, 230, 237, 1),
-            icon: Icons.schedule),
+        GestureDetector(
+           onTap: () => {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ExamSchedule(),))
+          },
+          child: ScheduleCard(
+              title: "Exam Schedule",
+              color: Color.fromRGBO(232, 230, 237, 1),
+              icon: Icons.schedule),
+        ),
         SizedBox(
           height: 20,
         ),
