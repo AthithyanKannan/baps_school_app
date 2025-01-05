@@ -1,7 +1,7 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
-import 'package:baps_school_app/co-ordinators/coordinators_pages/enrollment.dart';
-import 'package:baps_school_app/co-ordinators/coordinators_pages/materials.dart';
-import 'package:baps_school_app/co-ordinators/coordinators_pages/schedule.dart';
+import 'package:baps_school_app/co-ordinators/coordinators_pages/enrollment/enrollment.dart';
+import 'package:baps_school_app/co-ordinators/coordinators_pages/materials/materials.dart';
+import 'package:baps_school_app/co-ordinators/coordinators_pages/schedule/schedule.dart';
 import 'package:baps_school_app/colors.dart';
 import 'package:flutter/material.dart';
 

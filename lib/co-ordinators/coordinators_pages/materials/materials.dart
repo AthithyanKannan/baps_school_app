@@ -1,4 +1,5 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
+import 'package:baps_school_app/co-ordinators/coordinators_pages/materials/material_content.dart';
 import 'package:baps_school_app/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
@@ -82,7 +83,11 @@ class _MaterialsState extends State<Materials>
         SizedBox(
           height: 20,
         ),
-        SubjectCard(title: "Tamil", color: Color.fromRGBO(201, 247, 245, 1)),
+        GestureDetector(
+          onTap: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ContentOfMaterials(text: "Grade 2 Tamil"
+,))),
+          child: SubjectCard(title: "Tamil", color: Color.fromRGBO(201, 247, 245, 1))),
         SizedBox(
           height: 20,
         ),

@@ -1,3 +1,4 @@
+import 'package:baps_school_app/colors.dart';
 import 'package:flutter/material.dart';
 
 Widget textField({
@@ -29,6 +30,9 @@ Widget textField({
   );
 }
 
+
+
+
 Widget customButton({
   required String text,
   required VoidCallback? onPressed,
@@ -57,6 +61,10 @@ Widget customButton({
     ),
   );
 }
+
+
+
+
 
 Widget MenuCard({required IconData icon, required String text,Color iconColor = Colors.red}) {
   return Card(
