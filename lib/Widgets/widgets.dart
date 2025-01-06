@@ -95,32 +95,36 @@ Widget MenuCard(
     {required IconData icon,
     required String text,
     Color iconColor = Colors.red}) {
-  return Card(
-    color: Color.fromRGBO(235, 238, 255, 1),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(7.0),
-    ),
-    child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 40),
-      child: Column(
-        // mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            icon,
-            size: 48.0,
-            color: iconColor,
-          ),
-          SizedBox(height: 8.0),
-          Text(
-            text,
-            style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
-                letterSpacing: 1),
-          ),
-        ],
+  return Container(
+    height: 170,
+    width: 180,
+    child: Card(
+      color: Color.fromRGBO(235, 238, 255, 1),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(7.0),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 40),
+        child: Column(
+          // mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              size: 48.0,
+              color: iconColor,
+            ),
+            SizedBox(height: 8.0),
+            Text(
+              text,
+              style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                  letterSpacing: 1),
+            ),
+          ],
+        ),
       ),
     ),
   );
@@ -317,6 +321,34 @@ class TimelineList extends StatelessWidget {
       },
     );
   }
+}
+
+PreferredSizeWidget CustomAppBar({
+  required IconData icon, // Icon to display in the leading section
+  required String title, // Title text of the AppBar
+  required VoidCallback onPress, // Callback function for the icon press
+}) {
+  return AppBar(
+    backgroundColor:
+        backgroundColor, // Default background color if none is provided
+    leading: GestureDetector(
+      onTap: () {
+        onPress;
+      },
+      child: Icon(icon),
+    ),
+    title: Text(title),
+  );
+}
+
+Widget customFloatingActionButton({
+  required VoidCallback onPressed,  // Callback for when the button is pressed
+}) {
+  return FloatingActionButton(
+    onPressed: onPressed,
+    child: Icon(Icons.home),
+    backgroundColor: Color.fromRGBO(174, 188, 255, 1),
+  );
 }
 
 Widget enrollmentForm() {

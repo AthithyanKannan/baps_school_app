@@ -1,4 +1,5 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
+import 'package:baps_school_app/admin/admin_mentor/admin_mentor_pages/admin_mentor_list.dart';
 import 'package:baps_school_app/admin/admin_mentor/admin_mentor_pages/admin_mentor_mapping.dart';
 import 'package:baps_school_app/colors.dart';
 import 'package:flutter/material.dart';
@@ -56,10 +57,19 @@ class _AdminMentorState extends State<AdminMentor> {
               SizedBox(
                 height: 30,
               ),
-              ScheduleCard(
-                  title: "Mentor List",
-                  color: Color.fromRGBO(235, 238, 255, 1),
-                  icon: Icons.list),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AdminMentorList(),
+                      ));
+                },
+                child: ScheduleCard(
+                    title: "Mentor List",
+                    color: Color.fromRGBO(235, 238, 255, 1),
+                    icon: Icons.list),
+              ),
               SizedBox(
                 height: 30,
               ),
