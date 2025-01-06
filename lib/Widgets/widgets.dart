@@ -1,3 +1,4 @@
+import 'package:baps_school_app/colors.dart';
 import 'package:flutter/material.dart';
 
 Widget textField({
@@ -7,7 +8,7 @@ Widget textField({
 }) {
   return Padding(
     padding: const EdgeInsets.symmetric(
-        vertical: 8.0, horizontal: 30), // Reduced vertical padding
+        vertical: 8.0, horizontal: 20), // Reduced vertical padding
     child: TextField(
       obscureText: isPassword, // Handle password visibility
       keyboardType: keyboardType, // Handle keyboard type
@@ -25,6 +26,37 @@ Widget textField({
         ),
         contentPadding: EdgeInsets.symmetric(
             horizontal: 16.0, vertical: 12.0), // Reduced padding
+      ),
+    ),
+  );
+}
+
+Widget searchTextField({
+  required String hintText,
+  TextEditingController?
+      controller, // Optional, if you want to handle text input
+}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+    child: TextField(
+      controller: controller, // Optional, if you want to capture input
+      style: TextStyle(fontSize: 14),
+      decoration: InputDecoration(
+        hintText: hintText, // Placeholder text
+        hintStyle: TextStyle(fontSize: 14), // Reduced hint font size
+        filled: true,
+        fillColor:
+            const Color.fromARGB(255, 241, 239, 239), // Light grey background
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8), // Slightly rounded corners
+          borderSide: BorderSide.none, // Remove the default border
+        ),
+        contentPadding: EdgeInsets.symmetric(
+            horizontal: 16.0, vertical: 12.0), // Reduced padding
+        prefixIcon: Icon(
+          Icons.search, // Search icon on the left
+          color: Colors.grey,
+        ),
       ),
     ),
   );
@@ -71,7 +103,7 @@ Widget MenuCard(
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 40),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        // mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
@@ -285,4 +317,221 @@ class TimelineList extends StatelessWidget {
       },
     );
   }
+}
+
+Widget enrollmentForm() {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 50),
+    child: Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Container(
+          height: 570,
+          width: 350,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey,
+                blurRadius: 1,
+                blurStyle: BlurStyle.outer,
+                spreadRadius: 1,
+              ),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                  height:
+                      60), // Add some space to make room for the CircleAvatar
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Text("Name"),
+              ),
+              textField(hintText: "Enter name"),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Text("DOB"),
+              ),
+              textField(hintText: "Enter DOB"),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Text("Gender"),
+              ),
+              textField(hintText: "Enter gender"),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Text("Grade"),
+              ),
+              textField(hintText: "Enter grade"),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Text("Mobile number"),
+              ),
+              textField(hintText: "Enter number"),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  customButton(
+                    onPressed: () {},
+                    text: "Cancel",
+                    borderRadius: BorderRadius.circular(30),
+                    padding: EdgeInsets.symmetric(horizontal: 40),
+                    backgroundColor: Color.fromRGBO(235, 238, 255, 1),
+                    textColor: Colors.blue,
+                  ),
+                  customButton(
+                    onPressed: () {},
+                    text: "Confirm",
+                    borderRadius: BorderRadius.circular(30),
+                    padding: EdgeInsets.symmetric(horizontal: 40),
+                    backgroundColor: Color.fromRGBO(53, 87, 255, 1),
+                    textColor: Colors.white,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        Positioned(
+          top: -30, // Adjust position of the avatar
+          left: 120, // Center the CircleAvatar horizontally
+          child: CircleAvatar(
+            backgroundColor: const Color.fromARGB(255, 241, 235, 235),
+            radius: 40, // Adjust the size of the avatar
+            child: Icon(
+              Icons.person,
+              color: Colors.black,
+            ), // Replace with actual profile image URL
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget mentorCard({
+  required String name,
+  required String role,
+  required String about,
+  required String mentor_name,
+  required String date,
+  required String imagePath,
+  required VoidCallback onCall,
+  required VoidCallback onEmail,
+}) {
+  return Card(
+    color: Colors.white,
+    margin: EdgeInsets.all(16),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12),
+    ),
+    elevation: 4,
+    child: Container(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              children: [
+                CircleAvatar(
+                  radius: 24,
+                  // backgroundImage: AssetImage(
+                  //     imagePath), // Replace with actual image asset or network image
+                ),
+                SizedBox(width: 16),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      name,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      role,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey[600],
+                      ),
+                    ),
+                  ],
+                ),
+                Spacer(),
+                Text(
+                  date,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey[600],
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 16),
+            Text(
+              "Reason",
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 8),
+            Container(
+              height: 100,
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(247, 248, 250, 1),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              width: 400,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  about,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey[800],
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 16),
+            Row(
+              children: [
+                Text(
+                  "Mentor : ",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  mentor_name,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[800],
+                  ),
+                ),
+                Spacer(),
+                IconButton(
+                  onPressed: onCall,
+                  icon: Icon(Icons.phone, color: Colors.blue),
+                ),
+                IconButton(
+                  onPressed: onEmail,
+                  icon: Icon(Icons.email, color: Colors.blue),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
 }

@@ -1,18 +1,18 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
-import 'package:baps_school_app/co-ordinators/coordinators_pages/enrollment/mentor_enrollment/mentor_enrollment.dart';
-import 'package:baps_school_app/co-ordinators/coordinators_pages/enrollment/student_enrollment/student_enrollement.dart';
+import 'package:baps_school_app/admin/admin_student/admin_student_pages/admin_student_issue.dart';
+import 'package:baps_school_app/admin/admin_student/admin_student_pages/admin_student_profile.dart';
 import 'package:baps_school_app/colors.dart';
-import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
+import 'package:buttons_tabbar/buttons_tabbar.dart';
 
-class Enrollment extends StatefulWidget {
-  const Enrollment({super.key});
+class AdminStudent extends StatefulWidget {
+  const AdminStudent({super.key});
 
   @override
-  State<Enrollment> createState() => _EnrollmentState();
+  State<AdminStudent> createState() => _AdminStudentState();
 }
 
-class _EnrollmentState extends State<Enrollment>
+class _AdminStudentState extends State<AdminStudent>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
@@ -40,7 +40,7 @@ class _EnrollmentState extends State<Enrollment>
             child: const Icon(Icons.home)),
         backgroundColor: Colors.white,
         title: const Text(
-          "Enrollment",
+          "Student",
           style: TextStyle(
               fontWeight: FontWeight.bold, letterSpacing: 1, fontSize: 20),
         ),
@@ -75,6 +75,16 @@ class _EnrollmentState extends State<Enrollment>
           (index) => Grade(),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromARGB(255, 131, 197, 252),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: Icon(
+          Icons.home,
+          color: Colors.blue,
+        ),
+      ),
     );
   }
 
@@ -89,13 +99,13 @@ class _EnrollmentState extends State<Enrollment>
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => StudentEnrollement(),
+                  builder: (context) => AdminStudentProfile(),
                 ));
           },
           child: ScheduleCard(
-              title: "Student Enrollment",
-              color: Color.fromRGBO(201, 247, 245, 1),
-              icon: Icons.person_2),
+              title: "Student Profile",
+              color: Color.fromRGBO(232, 230, 237, 1),
+              icon: Icons.person),
         ),
         SizedBox(
           height: 20,
@@ -105,35 +115,14 @@ class _EnrollmentState extends State<Enrollment>
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => MentorEnrollment(),
+                  builder: (context) => AdminStudentIssue(),
                 ));
           },
           child: ScheduleCard(
-              title: "Mentor Enrollment",
-              color: Color.fromRGBO(232, 230, 237, 1),
-              icon: Icons.engineering_rounded),
+              title: "Issues Log",
+              color: Color.fromRGBO(255, 243, 220, 1),
+              icon: Icons.person),
         ),
-        SizedBox(
-          height: 20,
-        ),
-        ScheduleCard(
-            title: "Subject & Activity Enrollment",
-            color: Color.fromRGBO(255, 243, 220, 1),
-            icon: Icons.subject),
-        SizedBox(
-          height: 20,
-        ),
-        ScheduleCard(
-            title: "Infrastructure Enrollment",
-            color: Color.fromRGBO(235, 238, 255, 1),
-            icon: Icons.info),
-        SizedBox(
-          height: 20,
-        ),
-        ScheduleCard(
-            title: "Settings",
-            color: Color.fromRGBO(255, 214, 238, 1),
-            icon: Icons.settings),
       ],
     );
   }

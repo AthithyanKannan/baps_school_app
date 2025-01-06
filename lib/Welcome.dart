@@ -27,7 +27,7 @@ class _WelcomeState extends State<Welcome> {
               Text(
                 "BIT SCHOOLS",
                 style: TextStyle(
-                    fontSize: 34,
+                    fontSize: 45,
                     fontWeight: FontWeight.bold,
                     color: Color.fromRGBO(74, 94, 109, 1)),
               ),
