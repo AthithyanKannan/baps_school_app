@@ -103,9 +103,10 @@ class _AdminStudentState extends State<AdminStudent>
                 ));
           },
           child: ScheduleCard(
+            textColor: Color.fromRGBO(101, 85, 143, 1),
               title: "Student Profile",
               color: Color.fromRGBO(232, 230, 237, 1),
-              icon: Icons.person),
+              image: AssetImage("assets/admin_mentor_icon.png")),
         ),
         SizedBox(
           height: 20,
@@ -119,9 +120,10 @@ class _AdminStudentState extends State<AdminStudent>
                 ));
           },
           child: ScheduleCard(
+            textColor: Color.fromRGBO(238, 170, 22, 1),
               title: "Issues Log",
               color: Color.fromRGBO(255, 243, 220, 1),
-              icon: Icons.person),
+              image: AssetImage("assets/admin_mentor_icon.png")),
         ),
       ],
     );

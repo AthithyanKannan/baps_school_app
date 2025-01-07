@@ -37,7 +37,7 @@ class _AdminHomeState extends State<AdminHome> {
                     ));
               },
               child: MenuCard(
-                  icon: Icons.person, text: "Student", iconColor: Colors.green),
+                  image: AssetImage("assets/admin_student_icon.png"), text: "Student", iconColor: Colors.green),
             ),
             GestureDetector(
               onTap: () {
@@ -48,7 +48,7 @@ class _AdminHomeState extends State<AdminHome> {
                     ));
               },
               child: MenuCard(
-                  icon: Icons.person_2,
+                  image: AssetImage("assets/admin_mentor_icon.png"),
                   text: "Mentor",
                   iconColor: Colors.greenAccent),
             )
@@ -66,12 +66,12 @@ class _AdminHomeState extends State<AdminHome> {
                     ));
               },
               child: MenuCard(
-                  icon: Icons.bus_alert_sharp,
+                  image: AssetImage("assets/admin_alerts_icon.png"),
                   text: "Alerts",
                   iconColor: Colors.orange),
             ),
             MenuCard(
-                icon: Icons.time_to_leave,
+                image: AssetImage("assets/admin_approvals_icon.png"),
                 text: "Approvals",
                 iconColor: Colors.green)
           ]),
@@ -80,11 +80,11 @@ class _AdminHomeState extends State<AdminHome> {
           ),
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             MenuCard(
-                icon: Icons.time_to_leave,
+                image: AssetImage("assets/admin_activity_icon.png"),
                 text: "Activity",
                 iconColor: Colors.yellow),
             MenuCard(
-                icon: Icons.calendar_month,
+                image: AssetImage("assets/admin_calender_icon.png"),
                 text: "Schedule",
                 iconColor: Colors.green)
           ]),

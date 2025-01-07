@@ -93,9 +93,10 @@ class _EnrollmentState extends State<Enrollment>
                 ));
           },
           child: ScheduleCard(
+              textColor: Color.fromRGBO(15, 190, 179, 1),
               title: "Student Enrollment",
               color: Color.fromRGBO(201, 247, 245, 1),
-              icon: Icons.person_2),
+              image: AssetImage("assets/co_activity_enrollement.png")),
         ),
         SizedBox(
           height: 20,
@@ -109,31 +110,27 @@ class _EnrollmentState extends State<Enrollment>
                 ));
           },
           child: ScheduleCard(
+              textColor: Color.fromRGBO(173, 81, 145, 1) ,
               title: "Mentor Enrollment",
-              color: Color.fromRGBO(232, 230, 237, 1),
-              icon: Icons.engineering_rounded),
+              color: Color.fromRGBO(255, 218, 240, 1),
+             image: AssetImage("assets/co_mentor_enrollement.png")),
         ),
         SizedBox(
           height: 20,
         ),
         ScheduleCard(
+          textColor: Color.fromRGBO(101, 85, 143, 1) ,
             title: "Subject & Activity Enrollment",
-            color: Color.fromRGBO(255, 243, 220, 1),
-            icon: Icons.subject),
+            color: Color.fromRGBO(101, 85, 143, 0.4),
+            image: AssetImage("assets/co_exam_schedule.png")),
         SizedBox(
           height: 20,
         ),
         ScheduleCard(
+          textColor: Color.fromRGBO(238, 170, 22, 1),
             title: "Infrastructure Enrollment",
-            color: Color.fromRGBO(235, 238, 255, 1),
-            icon: Icons.info),
-        SizedBox(
-          height: 20,
-        ),
-        ScheduleCard(
-            title: "Settings",
-            color: Color.fromRGBO(255, 214, 238, 1),
-            icon: Icons.settings),
+            color: Color.fromRGBO(255, 243, 220, 1),
+            image: AssetImage("assets/co_infrastructure_enrollement.png")),
       ],
     );
   }

@@ -17,16 +17,8 @@ class _AdminMentorState extends State<AdminMentor> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-      appBar: AppBar(
-        backgroundColor: backgroundColor,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Icon(Icons.arrow_back),
-        ),
-        title: Text("Mentors"),
-      ),
+      appBar:
+          CustomAppBar(icon: Icons.arrow_back, title: "Mentor", onPress: () {}),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -37,9 +29,10 @@ class _AdminMentorState extends State<AdminMentor> {
                 height: 10,
               ),
               ScheduleCard(
+                  textColor: Color.fromRGBO(101, 85, 143, 1),
                   title: "Subject Mentor",
-                  color: Color.fromRGBO(232, 230, 237, 1),
-                  icon: Icons.subject),
+                  color: Color.fromRGBO(232, 230, 237,4),
+                  image: AssetImage("assets/admin_mentor.png")),
               SizedBox(
                 height: 30,
               ),
@@ -52,9 +45,10 @@ class _AdminMentorState extends State<AdminMentor> {
                         ));
                   },
                   child: ScheduleCard(
+                      textColor: Color.fromRGBO(238, 170, 22, 1),
                       title: "Mentor Mapping",
                       color: Color.fromRGBO(255, 243, 220, 1),
-                      icon: Icons.directions)),
+                      image: AssetImage("assets/admin_mentor_mapping.png"))),
               SizedBox(
                 height: 30,
               ),
@@ -67,9 +61,10 @@ class _AdminMentorState extends State<AdminMentor> {
                       ));
                 },
                 child: ScheduleCard(
+                    textColor: Color.fromRGBO(53, 87, 255, 1),
                     title: "Mentor List",
                     color: Color.fromRGBO(235, 238, 255, 1),
-                    icon: Icons.list),
+                    image: AssetImage("assets/admin_mentor_list.png")),
               ),
               SizedBox(
                 height: 30,
@@ -83,9 +78,10 @@ class _AdminMentorState extends State<AdminMentor> {
                       ));
                 },
                 child: ScheduleCard(
+                    textColor: Color.fromRGBO(173, 81, 145, 1),
                     title: "Leave Approval",
                     color: Color.fromRGBO(255, 218, 240, 1),
-                    icon: Icons.exit_to_app),
+                    image: AssetImage("assets/admin_leaveapproval.png")),
               ),
             ],
           ),

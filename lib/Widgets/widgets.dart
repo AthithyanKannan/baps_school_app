@@ -89,7 +89,6 @@ Widget customRoundedIconButton({
   );
 }
 
-
 Widget customButton({
   required String text,
   required VoidCallback? onPressed,
@@ -119,13 +118,14 @@ Widget customButton({
   );
 }
 
-Widget MenuCard(
-    {required IconData icon,
-    required String text,
-    Color iconColor = Colors.red}) {
+Widget MenuCard({
+  required ImageProvider image,
+  required String text,
+  Color iconColor = Colors.red,
+}) {
   return SizedBox(
     height: 170,
-    width: 180,
+    width: 170,
     child: Card(
       color: Color.fromRGBO(235, 238, 255, 1),
       shape: RoundedRectangleBorder(
@@ -134,22 +134,23 @@ Widget MenuCard(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 40),
         child: Column(
-          // mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              icon,
-              size: 48.0,
-              color: iconColor,
+            Image(
+              image: image,
+              height: 48.0,
+              width: 48.0,
+              fit: BoxFit.contain,
             ),
             SizedBox(height: 8.0),
             Text(
               text,
               style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87,
-                  letterSpacing: 1),
+                fontSize: 14.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+                letterSpacing: 1,
+              ),
             ),
           ],
         ),
@@ -189,47 +190,50 @@ Widget SubjectCard({required String title, required Color color}) {
   );
 }
 
-Widget ScheduleCard(
-    {required String title, required Color color, required IconData icon}) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-    child: Container(
-      decoration: BoxDecoration(
-        color: color,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            offset: Offset(2, 2),
-            blurRadius: 3,
+Widget ScheduleCard({
+  required String title,
+  required Color color,
+  required ImageProvider image,
+  required Color textColor, // Added textColor as a required parameter
+}) {
+  return Container(
+    decoration: BoxDecoration(
+      color: color,
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.2),
+          offset: Offset(2, 2),
+          blurRadius: 3,
+        ),
+      ],
+      borderRadius: BorderRadius.circular(12),
+    ),
+    height: 76,
+    width: 350,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: 25,
+        ),
+        Image(
+          image: image,
+          height: 35, // Match the previous icon size
+          width: 35, // Match the previous icon size
+          fit: BoxFit.contain,
+        ),
+        SizedBox(
+          width: 25,
+        ),
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: textColor, // Apply the required text color
           ),
-        ],
-        borderRadius: BorderRadius.circular(12),
-      ),
-      height: 70,
-      width: 320,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 25,
-          ),
-          Icon(
-            icon,
-            size: 26,
-          ),
-          SizedBox(
-            width: 25,
-          ),
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.black54,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     ),
   );
 }
@@ -357,7 +361,8 @@ PreferredSizeWidget CustomAppBar({
   required VoidCallback onPress, // Callback function for the icon press
 }) {
   return AppBar(
-    backgroundColor: backgroundColor, // Default background color if none is provided
+    backgroundColor:
+        backgroundColor, // Default background color if none is provided
     leading: GestureDetector(
       onTap: () {
         onPress();
@@ -381,17 +386,17 @@ PreferredSizeWidget CustomAppBar({
   );
 }
 
-
-
-
 Widget customFloatingActionButton({
-  required VoidCallback onPressed,  // Callback for when the button is pressed
+  required VoidCallback onPressed, // Callback for when the button is pressed
 }) {
   return FloatingActionButton(
-    onPressed: onPressed,
-    backgroundColor: Color.fromRGBO(174, 188, 255, 1),
-    child: Icon(Icons.home),
-  );
+      shape: CircleBorder(),
+      onPressed: onPressed,
+      backgroundColor: Color.fromRGBO(174, 188, 255, 1),
+      child: Icon(
+        Icons.home,
+        color: Color.fromRGBO(12, 54, 255, 1),
+      ));
 }
 
 Widget enrollmentForm() {

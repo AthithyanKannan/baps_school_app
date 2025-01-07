@@ -46,7 +46,7 @@ class _CoOrdinatorHomeState extends State<CoOrdinatorHome> {
                         ));
                   },
                   child: MenuCard(
-                      icon: Icons.book_sharp,
+                      image: AssetImage("assets/admin_student_icon.png"),
                       text: "Materials",
                       iconColor: Colors.blue)),
               GestureDetector(
@@ -57,7 +57,9 @@ class _CoOrdinatorHomeState extends State<CoOrdinatorHome> {
                           builder: (context) => Schedule(),
                         ));
                   },
-                  child: MenuCard(icon: Icons.schedule, text: "Schedule")),
+                  child: MenuCard(
+                      image: AssetImage("assets/admin_student_icon.png"),
+                      text: "Schedule")),
             ],
           ),
           SizedBox(
@@ -76,7 +78,8 @@ class _CoOrdinatorHomeState extends State<CoOrdinatorHome> {
                           ));
                     },
                     child: MenuCard(
-                        icon: Icons.edit_note_rounded,
+                        image:
+                            AssetImage("assets/admin_student_icon.png"),
                         text: "Enrollment",
                         iconColor: Colors.black)),
               ],

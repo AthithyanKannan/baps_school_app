@@ -86,46 +86,59 @@ class _ScheduleState extends State<Schedule>
         ),
         GestureDetector(
           onTap: () => {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ScheduleContent(),))
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ScheduleContent(),
+                ))
           },
           child: ScheduleCard(
+              textColor: Color.fromRGBO(15, 190, 179, 1),
               title: "Academic Schedule",
               color: Color.fromRGBO(201, 247, 245, 1),
-              icon: Icons.engineering),
+              image: AssetImage("assets/co_academic_schedule.png")),
         ),
         SizedBox(
           height: 20,
         ),
         GestureDetector(
-           onTap: () => {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ExamSchedule(),))
+          onTap: () => {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ExamSchedule(),
+                ))
           },
           child: ScheduleCard(
+              textColor: Color.fromRGBO(101, 85, 143, 1),
               title: "Exam Schedule",
-              color: Color.fromRGBO(232, 230, 237, 1),
-              icon: Icons.schedule),
+              color: Color.fromRGBO(101, 85, 143, 0.4),
+              image: AssetImage("assets/co_exam_schedule.png")),
         ),
         SizedBox(
           height: 20,
         ),
         ScheduleCard(
+            textColor: Color.fromRGBO(238, 170, 22, 1),
             title: "Invigilation Duties",
             color: Color.fromRGBO(255, 243, 220, 1),
-            icon: Icons.person_search),
+            image: AssetImage("assets/co_invigilation_duties.png")),
         SizedBox(
           height: 20,
         ),
         ScheduleCard(
+            textColor: Color.fromRGBO(53, 87, 255, 1),
             title: "Weekly Schedules",
             color: Color.fromRGBO(235, 238, 255, 1),
-            icon: Icons.person_search),
+            image: AssetImage("assets/co_weekly_schedules.png")),
         SizedBox(
           height: 20,
         ),
         ScheduleCard(
+            textColor: Color.fromRGBO(173, 81, 145, 1),
             title: "Schedule Settings",
-            color: Color.fromRGBO(255, 214, 238, 1),
-            icon: Icons.settings),
+            color: Color.fromRGBO(255, 218, 240, 1),
+            image: AssetImage("assets/co_schedule_settings.png")),
       ],
     );
   }
