@@ -1,5 +1,4 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
-import 'package:baps_school_app/admin/admin_student/admin_student_pages/admin_student_profile.dart';
 import 'package:baps_school_app/colors.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';

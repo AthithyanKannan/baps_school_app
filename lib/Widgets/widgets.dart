@@ -48,7 +48,7 @@ Widget searchTextField({
         fillColor:
             const Color.fromARGB(255, 241, 239, 239), // Light grey background
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8), // Slightly rounded corners
+          borderRadius: BorderRadius.circular(30), // Slightly rounded corners
           borderSide: BorderSide.none, // Remove the default border
         ),
         contentPadding: EdgeInsets.symmetric(
@@ -61,6 +61,34 @@ Widget searchTextField({
     ),
   );
 }
+
+Widget customRoundedIconButton({
+  required IconData icon,
+  required Color backgroundColor,
+  required Color iconColor,
+  required VoidCallback onPressed,
+  double iconSize = 20,
+  double borderRadius = 10.0,
+  double padding = 8.0,
+}) {
+  return InkWell(
+    onTap: onPressed,
+    borderRadius: BorderRadius.circular(borderRadius),
+    child: Container(
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(borderRadius),
+      ),
+      padding: EdgeInsets.all(padding),
+      child: Icon(
+        icon,
+        color: iconColor,
+        size: iconSize,
+      ),
+    ),
+  );
+}
+
 
 Widget customButton({
   required String text,
@@ -95,7 +123,7 @@ Widget MenuCard(
     {required IconData icon,
     required String text,
     Color iconColor = Colors.red}) {
-  return Container(
+  return SizedBox(
     height: 170,
     width: 180,
     child: Card(
@@ -329,25 +357,40 @@ PreferredSizeWidget CustomAppBar({
   required VoidCallback onPress, // Callback function for the icon press
 }) {
   return AppBar(
-    backgroundColor:
-        backgroundColor, // Default background color if none is provided
+    backgroundColor: backgroundColor, // Default background color if none is provided
     leading: GestureDetector(
       onTap: () {
-        onPress;
+        onPress();
       },
-      child: Icon(icon),
+      child: Icon(
+        icon,
+        weight: 2,
+      ),
     ),
-    title: Text(title),
+    title: Text(
+      title,
+      style: TextStyle(fontWeight: FontWeight.bold),
+    ),
+    bottom: PreferredSize(
+      preferredSize: Size.fromHeight(1.0), // Height of the border
+      child: Container(
+        color: Colors.grey, // Color of the border line
+        height: 1.0, // Height of the border
+      ),
+    ),
   );
 }
+
+
+
 
 Widget customFloatingActionButton({
   required VoidCallback onPressed,  // Callback for when the button is pressed
 }) {
   return FloatingActionButton(
     onPressed: onPressed,
-    child: Icon(Icons.home),
     backgroundColor: Color.fromRGBO(174, 188, 255, 1),
+    child: Icon(Icons.home),
   );
 }
 

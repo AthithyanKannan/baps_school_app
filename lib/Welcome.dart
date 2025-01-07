@@ -28,6 +28,7 @@ class _WelcomeState extends State<Welcome> {
                 "BIT SCHOOLS",
                 style: TextStyle(
                     fontSize: 45,
+                    fontFamily: "DMSans-Bold",
                     fontWeight: FontWeight.bold,
                     color: Color.fromRGBO(74, 94, 109, 1)),
               ),

@@ -24,6 +24,6 @@ class _MentorEnrollmentState extends State<MentorEnrollment> {
             child: Icon(Icons.arrow_back)),
       ),
       body: enrollmentForm(),
-    );;
+    );
   }
 }

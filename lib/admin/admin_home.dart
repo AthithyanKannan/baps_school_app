@@ -1,4 +1,5 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
+import 'package:baps_school_app/admin/admin_alerts/admin_alerts.dart';
 import 'package:baps_school_app/admin/admin_mentor/admin_mentor.dart';
 import 'package:baps_school_app/admin/admin_student/admin_student.dart';
 import 'package:baps_school_app/colors.dart';
@@ -39,7 +40,7 @@ class _AdminHomeState extends State<AdminHome> {
                   icon: Icons.person, text: "Student", iconColor: Colors.green),
             ),
             GestureDetector(
-               onTap: () {
+              onTap: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -56,10 +57,19 @@ class _AdminHomeState extends State<AdminHome> {
             height: 30,
           ),
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            MenuCard(
-                icon: Icons.bus_alert_sharp,
-                text: "Alerts",
-                iconColor: Colors.orange),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AdminAlerts(),
+                    ));
+              },
+              child: MenuCard(
+                  icon: Icons.bus_alert_sharp,
+                  text: "Alerts",
+                  iconColor: Colors.orange),
+            ),
             MenuCard(
                 icon: Icons.time_to_leave,
                 text: "Approvals",

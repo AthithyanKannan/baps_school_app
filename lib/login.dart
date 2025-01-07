@@ -1,6 +1,5 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
 import 'package:baps_school_app/admin/admin_home.dart';
-import 'package:baps_school_app/co-ordinators/CoOrdinatorHome.dart';
 import 'package:baps_school_app/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:sign_in_button/sign_in_button.dart';

@@ -96,8 +96,8 @@ class _AdminStudentProfileState extends State<AdminStudentProfile> {
                 width: 10,
               ),
               CircleAvatar(
-                child: Icon(Icons.person),
                 backgroundColor: Colors.white,
+                child: Icon(Icons.person),
               ),
               SizedBox(
                 width: 10,
@@ -114,8 +114,8 @@ class _AdminStudentProfileState extends State<AdminStudentProfile> {
                 width: 10,
               ),
               CircleAvatar(
-                child: Icon(Icons.person),
                 backgroundColor: Colors.white,
+                child: Icon(Icons.person),
               ),
               SizedBox(
                 width: 10,
@@ -132,8 +132,8 @@ class _AdminStudentProfileState extends State<AdminStudentProfile> {
                 width: 10,
               ),
               CircleAvatar(
-                child: Icon(Icons.person),
                 backgroundColor: Colors.white,
+                child: Icon(Icons.person),
               ),
               SizedBox(
                 width: 10,
@@ -150,8 +150,8 @@ class _AdminStudentProfileState extends State<AdminStudentProfile> {
                 width: 10,
               ),
               CircleAvatar(
-                child: Icon(Icons.person),
                 backgroundColor: Colors.white,
+                child: Icon(Icons.person),
               ),
               SizedBox(
                 width: 10,
@@ -168,8 +168,8 @@ class _AdminStudentProfileState extends State<AdminStudentProfile> {
                 width: 10,
               ),
               CircleAvatar(
-                child: Icon(Icons.person),
                 backgroundColor: Colors.white,
+                child: Icon(Icons.person),
               ),
               SizedBox(
                 width: 10,
@@ -186,8 +186,8 @@ class _AdminStudentProfileState extends State<AdminStudentProfile> {
                 width: 10,
               ),
               CircleAvatar(
-                child: Icon(Icons.person),
                 backgroundColor: Colors.white,
+                child: Icon(Icons.person),
               ),
               SizedBox(
                 width: 10,

@@ -110,7 +110,7 @@ class _AdminMentorMappingState extends State<AdminMentorMapping> {
   }) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: Container(
+      child: SizedBox(
         height: 100,
         width: 350,
         child: Card(
@@ -187,7 +187,7 @@ class _MappingState extends State<Mapping> {
             // Mentor Card
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Container(
+              child: SizedBox(
                 height: 100,
                 width: 350,
                 child: Card(
@@ -284,7 +284,7 @@ class _MappingState extends State<Mapping> {
   }) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: Container(
+      child: SizedBox(
         height: 100,
         width: 350,
         child: Card(

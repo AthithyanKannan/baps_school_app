@@ -1,4 +1,5 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
+import 'package:baps_school_app/admin/admin_mentor/admin_mentor_pages/admin_leave_approve.dart';
 import 'package:baps_school_app/admin/admin_mentor/admin_mentor_pages/admin_mentor_list.dart';
 import 'package:baps_school_app/admin/admin_mentor/admin_mentor_pages/admin_mentor_mapping.dart';
 import 'package:baps_school_app/colors.dart';
@@ -73,10 +74,19 @@ class _AdminMentorState extends State<AdminMentor> {
               SizedBox(
                 height: 30,
               ),
-              ScheduleCard(
-                  title: "Leave Approval",
-                  color: Color.fromRGBO(255, 218, 240, 1),
-                  icon: Icons.exit_to_app),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AdminLeaveApprove(),
+                      ));
+                },
+                child: ScheduleCard(
+                    title: "Leave Approval",
+                    color: Color.fromRGBO(255, 218, 240, 1),
+                    icon: Icons.exit_to_app),
+              ),
             ],
           ),
         ],
@@ -85,8 +95,8 @@ class _AdminMentorState extends State<AdminMentor> {
         onPressed: () {
           Navigator.pop(context);
         },
-        child: Icon(Icons.home),
         backgroundColor: Color.fromRGBO(174, 188, 255, 1),
+        child: Icon(Icons.home),
       ),
     );
   }

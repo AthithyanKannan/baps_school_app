@@ -16,9 +16,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // theme: ThemeData(
-      //   textTheme: GoogleFonts.openSansTextTheme(Theme.of(context).textTheme)
-      // ),
+      theme: ThemeData(
+        fontFamily: "DMSans" 
+      ),
       debugShowCheckedModeBanner: false,
       home: Welcome(),
     );

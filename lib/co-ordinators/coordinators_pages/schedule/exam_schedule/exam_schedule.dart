@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class ExamSchedule extends StatefulWidget {
-  const ExamSchedule({Key? key}) : super(key: key);
+  const ExamSchedule({super.key});
 
   @override
   _ExamScheduleState createState() => _ExamScheduleState();
