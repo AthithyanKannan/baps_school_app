@@ -1,5 +1,6 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
 import 'package:baps_school_app/colors.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 class AdminBufferActivity extends StatefulWidget {
@@ -18,7 +19,7 @@ class _AdminBufferActivityState extends State<AdminBufferActivity> {
         icon: Icons.arrow_back,
         title: "Buffer Activity",
         onPress: () {
-          // Navigator.pop(context);
+          Navigator.pop(context);
         },
       ),
       body: Row(
@@ -46,7 +47,13 @@ class _AdminBufferActivityState extends State<AdminBufferActivity> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AdminAddBuffer(),
+                  ));
+            },
             shape: CircleBorder(),
             elevation: 0,
             backgroundColor: Color.fromRGBO(53, 87, 255, 1),
@@ -69,7 +76,7 @@ class _AdminBufferActivityState extends State<AdminBufferActivity> {
   Widget adminBufferActivityCard() {
     return SizedBox(
       height: 180,
-      width: 360,
+      width: 370,
       child: Card(
         color: Colors.white,
         child: Padding(
@@ -104,8 +111,11 @@ class _AdminBufferActivityState extends State<AdminBufferActivity> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   Text(
-                    "End in : 30min",
-                    style: TextStyle(color: Colors.red, fontSize: 14),
+                    "Ends in : 30min",
+                    style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -134,4 +144,160 @@ class _AdminBufferActivityState extends State<AdminBufferActivity> {
       ),
     );
   }
+}
+
+class AdminAddBuffer extends StatefulWidget {
+  const AdminAddBuffer({super.key});
+
+  @override
+  State<AdminAddBuffer> createState() => _AdminAddBufferState();
+}
+
+class _AdminAddBufferState extends State<AdminAddBuffer> {
+  String? selectedGrade; // To hold the selected dropdown value
+  String? selectedSections; // To hold the selected dropdown value
+  String? selectedActivities; // To hold the selected dropdown value
+
+// List of Grades
+  final List<String> grades =
+      List.generate(12, (index) => 'Grade ${index + 1}');
+
+// List of Sections
+  final List<String> sections = ['Section A', 'Section B', 'Section C'];
+
+// List of Activities
+  final List<String> activities = ['Games', 'Assessment', 'Free Period'];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor:
+          Colors.white, // Replace with your backgroundColor variable
+      appBar: CustomAppBar(
+          icon: Icons.arrow_back,
+          onPress: () {
+            Navigator.pop(context);
+          },
+          title: "Buffer Activity"),
+      body: SingleChildScrollView(
+          child: Center(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            Image.asset(
+              "assets/clock.gif",
+              height: 150,
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            SizedBox(
+                height: 340,
+                width: 370,
+                child: Card(
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: Text(
+                            "Grade",
+                            style: TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Center(
+                          child: customDropdown(
+                              selectedValue: selectedGrade,
+                              options: grades,
+                              hintText: "Select Grade",
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedGrade = value;
+                                });
+                              }),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: Text("Sections",
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.bold)),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Center(
+                          child: customDropdown(
+                              selectedValue: selectedSections,
+                              options: sections,
+                              hintText: "Select Sections",
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedSections = value;
+                                });
+                              }),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: Text("Activity",
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.bold)),
+                        ),
+                        Center(
+                          child: customDropdown(
+                              selectedValue: selectedActivities,
+                              options: activities,
+                              hintText: "Select Activity",
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedActivities = value;
+                                });
+                              }),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: Text("Time",
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.bold)),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Center(
+                          child: customButton(
+                              text: "Conform",
+                              onPressed: () {},
+                              borderRadius: BorderRadius.circular(30),
+                              letterSpacing: 0,
+                              backgroundColor: Color.fromRGBO(53, 87, 255, 1),
+                              padding: EdgeInsets.symmetric(horizontal: 100)),
+                        )
+                      ],
+                    ),
+                  ),
+                )),
+          ],
+        ),
+      )),
+      floatingActionButton: customFloatingActionButton(
+        onPressed: () {},
+      ),
+    );
+  }
+
+  
 }

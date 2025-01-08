@@ -1,5 +1,6 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
 import 'package:baps_school_app/admin/admin_activity/admin_activity_pages/admin_buffer_activity.dart';
+import 'package:baps_school_app/admin/admin_activity/admin_activity_pages/admin_general_activity.dart';
 import 'package:baps_school_app/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -47,11 +48,20 @@ class _AdminActivityState extends State<AdminActivity> {
                 SizedBox(
                   height: 20,
                 ),
-                ScheduleCard(
-                    title: "General Activity",
-                    textColor: Color.fromRGBO(101, 85, 143, 1),
-                    image: AssetImage("assets/admin_activity_general.png"),
-                    color: Color.fromRGBO(101, 85, 143, 0.12)),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AdminGeneralActivity(),
+                        ));
+                  },
+                  child: ScheduleCard(
+                      title: "General Activity",
+                      textColor: Color.fromRGBO(101, 85, 143, 1),
+                      image: AssetImage("assets/admin_activity_general.png"),
+                      color: Color.fromRGBO(101, 85, 143, 0.12)),
+                ),
                 SizedBox(
                   height: 20,
                 ),

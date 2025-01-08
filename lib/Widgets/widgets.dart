@@ -1,4 +1,5 @@
 import 'package:baps_school_app/colors.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 Widget textField({
@@ -89,6 +90,68 @@ Widget customRoundedIconButton({
   );
 }
 
+
+Widget customDropdown({
+    required List<String> options, // Dropdown options
+    required String hintText, // Hint text for the dropdown
+    required String? selectedValue, // Currently selected value
+    required ValueChanged<String?>
+        onChanged, // Callback for when an item is selected
+  }) {
+    return Container(
+      height: 45,
+      width: 320,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton2(
+          isExpanded: true,
+          hint: Text(
+            hintText,
+            style: const TextStyle(
+              fontSize: 14,
+              color: Colors.black,
+            ),
+          ),
+          items: options
+              .map((item) => DropdownMenuItem<String>(
+                    value: item,
+                    child: Text(
+                      item,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ))
+              .toList(),
+          value: selectedValue,
+          onChanged: onChanged,
+          buttonStyleData: const ButtonStyleData(
+            padding: EdgeInsets.symmetric(horizontal: 14),
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(247, 248, 250, 1),
+            ),
+          ),
+          iconStyleData: const IconStyleData(
+            icon: Icon(
+              Icons.arrow_drop_down,
+              color: Colors.black,
+            ),
+            iconSize: 24,
+          ),
+          dropdownStyleData: DropdownStyleData(
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(247, 248, 250, 1),
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
 Widget customButton({
   required String text,
   required VoidCallback? onPressed,
@@ -98,7 +161,7 @@ Widget customButton({
       const EdgeInsets.symmetric(horizontal: 85, vertical: 12),
   BorderRadiusGeometry borderRadius =
       const BorderRadius.all(Radius.circular(8)),
-  double letterSpacing = 1.0,
+  double letterSpacing = 0.0,
   double fontSize = 12
 
 }) {
@@ -377,7 +440,7 @@ PreferredSizeWidget CustomAppBar({
     ),
     title: Text(
       title,
-      style: TextStyle(fontWeight: FontWeight.bold),
+      style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),
     ),
     bottom: PreferredSize(
       preferredSize: Size.fromHeight(1.0), // Height of the border
@@ -393,6 +456,7 @@ Widget customFloatingActionButton({
   required VoidCallback onPressed, // Callback for when the button is pressed
 }) {
   return FloatingActionButton(
+    heroTag: null,
       shape: CircleBorder(),
       elevation: 0,
       onPressed: onPressed,
