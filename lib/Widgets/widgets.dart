@@ -46,7 +46,7 @@ Widget searchTextField({
         hintStyle: TextStyle(fontSize: 14), // Reduced hint font size
         filled: true,
         fillColor:
-            const Color.fromARGB(255, 241, 239, 239), // Light grey background
+            const Color.fromRGBO(238, 239, 249, 1), // Light grey background
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30), // Slightly rounded corners
           borderSide: BorderSide.none, // Remove the default border
@@ -99,6 +99,8 @@ Widget customButton({
   BorderRadiusGeometry borderRadius =
       const BorderRadius.all(Radius.circular(8)),
   double letterSpacing = 1.0,
+  double fontSize = 12
+
 }) {
   return ElevatedButton(
     onPressed: onPressed,
@@ -113,7 +115,7 @@ Widget customButton({
     ),
     child: Text(
       text,
-      style: TextStyle(color: textColor, letterSpacing: letterSpacing),
+      style: TextStyle(color: textColor, letterSpacing: letterSpacing,fontSize: fontSize),
     ),
   );
 }
@@ -124,9 +126,10 @@ Widget MenuCard({
   Color iconColor = Colors.red,
 }) {
   return SizedBox(
-    height: 170,
-    width: 170,
+    height: 164,
+    width: 164,
     child: Card(
+      elevation: 0,
       color: Color.fromRGBO(235, 238, 255, 1),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(7.0),
@@ -199,16 +202,16 @@ Widget ScheduleCard({
   return Container(
     decoration: BoxDecoration(
       color: color,
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black.withOpacity(0.2),
-          offset: Offset(2, 2),
-          blurRadius: 3,
-        ),
-      ],
+      // boxShadow: [
+      //   BoxShadow(
+      //     color: Colors.black.withOpacity(0.2),
+      //     offset: Offset(2, 2),
+      //     blurRadius: 3,
+      //   ),
+      // ],
       borderRadius: BorderRadius.circular(12),
     ),
-    height: 76,
+    height: 80,
     width: 350,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -379,8 +382,8 @@ PreferredSizeWidget CustomAppBar({
     bottom: PreferredSize(
       preferredSize: Size.fromHeight(1.0), // Height of the border
       child: Container(
-        color: Colors.grey, // Color of the border line
-        height: 1.0, // Height of the border
+        color: Colors.black, // Color of the border line
+        height: 0.2, // Height of the border
       ),
     ),
   );
@@ -391,6 +394,7 @@ Widget customFloatingActionButton({
 }) {
   return FloatingActionButton(
       shape: CircleBorder(),
+      elevation: 0,
       onPressed: onPressed,
       backgroundColor: Color.fromRGBO(174, 188, 255, 1),
       child: Icon(

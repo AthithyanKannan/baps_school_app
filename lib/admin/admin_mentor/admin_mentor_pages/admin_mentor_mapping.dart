@@ -14,19 +14,18 @@ class _AdminMentorMappingState extends State<AdminMentorMapping> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-      appBar: AppBar(
-        backgroundColor: backgroundColor,
-        leading: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Icon(Icons.arrow_back)),
-        title: Text("Mentor Mapping"),
+      appBar: CustomAppBar(
+        icon: Icons.arrow_back,
+        title: "Mentor Mapping",
+        onPress: () {},
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(
+              height: 10,
+            ),
             searchTextField(hintText: "Search"),
             SizedBox(
               height: 10,
@@ -72,9 +71,8 @@ class _AdminMentorMappingState extends State<AdminMentorMapping> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: customFloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.home),
       ),
     );
   }
@@ -85,17 +83,23 @@ class _AdminMentorMappingState extends State<AdminMentorMapping> {
         onAddMentor, // Callback when "+ Add Mentor" is pressed
   }) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          grade,
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        TextButton(
-          onPressed: onAddMentor,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 27.0),
           child: Text(
-            "+ Add Mentor",
-            style: TextStyle(color: Colors.blue),
+            grade,
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(right: 34),
+          child: TextButton(
+            onPressed: onAddMentor,
+            child: Text(
+              "+ Add Mentor",
+              style: TextStyle(color: Color.fromRGBO(12, 54, 255, 1)),
+            ),
           ),
         ),
       ],
@@ -111,7 +115,7 @@ class _AdminMentorMappingState extends State<AdminMentorMapping> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: SizedBox(
-        height: 100,
+        height: 80,
         width: 350,
         child: Card(
           color: Colors.white,
@@ -123,8 +127,9 @@ class _AdminMentorMappingState extends State<AdminMentorMapping> {
                 Row(
                   children: [
                     CircleAvatar(
-                      radius: 30,
-                      // backgroundImage: NetworkImage(avatarUrl),  // Use an image URL
+                      radius: 27,
+                      backgroundImage: AssetImage(
+                          "assets/admin_mentor_profile_icon.png"), // Use an image URL
                     ),
                     SizedBox(width: 20),
                     Column(
@@ -134,11 +139,14 @@ class _AdminMentorMappingState extends State<AdminMentorMapping> {
                         Text(
                           mentorName,
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
+                              fontWeight: FontWeight.bold, fontSize: 14),
                         ),
                         Text(
                           mentorId,
-                          style: TextStyle(fontWeight: FontWeight.w100),
+                          style: TextStyle(
+                              fontWeight: FontWeight.w100,
+                              color: Colors.grey,
+                              fontSize: 12),
                         ),
                       ],
                     ),
@@ -147,7 +155,11 @@ class _AdminMentorMappingState extends State<AdminMentorMapping> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 0.0),
                   child: IconButton(
-                    icon: Icon(Icons.add),
+                    icon: Icon(
+                      Icons.group,
+                      color: Colors.black,
+                      size: 18,
+                    ),
                     onPressed: onAddMentor,
                   ),
                 ),
@@ -171,109 +183,113 @@ class _MappingState extends State<Mapping> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: backgroundColor,
-        appBar: AppBar(
-          backgroundColor: backgroundColor,
-          leading: GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Icon(Icons.arrow_back)),
-          title: Text("Mentor Mapping"),
-        ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Mentor Card
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: SizedBox(
-                height: 100,
-                width: 350,
-                child: Card(
-                  color: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 30,
-                              // backgroundImage: NetworkImage(avatarUrl),  // Use an image URL
-                            ),
-                            SizedBox(width: 20),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Prakesh Raj",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
-                                ),
-                                Text(
-                                  "2024VI023",
-                                  style: TextStyle(fontWeight: FontWeight.w100),
-                                ),
-                                Text(
-                                  "Grade 1-A",
-                                  style: TextStyle(fontWeight: FontWeight.w100),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 0.0),
-                          child: TextButton(
-                              onPressed: () {}, child: Icon(Icons.add)),
-                        ),
-                      ],
-                    ),
+      backgroundColor: backgroundColor,
+      appBar: CustomAppBar(
+          icon: Icons.arrow_back, title: "Mentor Mapping", onPress: () {}),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 10,
+          ),
+          // Mentor Card
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: SizedBox(
+              height: 100,
+              width: 350,
+              child: Card(
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 27,
+                            backgroundImage: AssetImage(
+                                "assets/admin_mentor_profile_icon.png"), // Use an image URL
+                          ),
+                          SizedBox(width: 20),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Prakesh Raj",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 14),
+                              ),
+                              Text(
+                                "2024VI023",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w100,
+                                    fontSize: 12,
+                                    color: Colors.grey),
+                              ),
+                              Text(
+                                "Grade 1-A",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w100,
+                                    fontSize: 12,
+                                    color: Colors.grey),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 0.0),
+                        child: TextButton(
+                            onPressed: () {},
+                            child: Icon(
+                              Icons.group,
+                              color: Colors.black,
+                              size: 20,
+                            )),
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
+          ),
 
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 28.0, vertical: 10),
-              child: Text(
-                "Student List Grade 1",
-                style: TextStyle(color: Colors.grey),
-              ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 10),
+            child: Text(
+              "Student List Grade 1",
+              style: TextStyle(color: Colors.grey),
             ),
-            mentorMapping(
-                mentorName: "Athithyan",
-                mentorId: "2024VI023",
-                onAddMentor: () {},
-                avatarUrl: ""),
-            mentorMapping(
-                mentorName: "Athithyan",
-                mentorId: "2024VI023",
-                onAddMentor: () {},
-                avatarUrl: ""),
-            mentorMapping(
-                mentorName: "Athithyan",
-                mentorId: "2024VI023",
-                onAddMentor: () {},
-                avatarUrl: ""),
-            mentorMapping(
-                mentorName: "Athithyan",
-                mentorId: "2024VI023",
-                onAddMentor: () {},
-                avatarUrl: ""),
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Icon(Icons.home),
-        ));
+          ),
+          mentorMapping(
+              mentorName: "Athithyan",
+              mentorId: "2024VI023",
+              onAddMentor: () {},
+              avatarUrl: "assets/admin_student_profile_icon.png"),
+          mentorMapping(
+              mentorName: "Athithyan",
+              mentorId: "2024VI023",
+              onAddMentor: () {},
+              avatarUrl: "assets/admin_student_profile_icon.png"),
+          mentorMapping(
+              mentorName: "Athithyan",
+              mentorId: "2024VI023",
+              onAddMentor: () {},
+              avatarUrl: "assets/admin_student_profile_icon.png"),
+          mentorMapping(
+              mentorName: "Athithyan",
+              mentorId: "2024VI023",
+              onAddMentor: () {},
+              avatarUrl: "assets/admin_student_profile_icon.png"),
+        ],
+      ),
+      floatingActionButton: customFloatingActionButton(
+        onPressed: () {},
+      ),
+    );
   }
 
   Widget mentorMapping({
@@ -285,7 +301,7 @@ class _MappingState extends State<Mapping> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: SizedBox(
-        height: 100,
+        height: 80,
         width: 350,
         child: Card(
           color: Colors.white,
@@ -297,8 +313,9 @@ class _MappingState extends State<Mapping> {
                 Row(
                   children: [
                     CircleAvatar(
-                      radius: 30,
-                      // backgroundImage: NetworkImage(avatarUrl),  // Use an image URL
+                      radius: 27,
+                      backgroundImage:
+                          AssetImage(avatarUrl), // Use an image URL
                     ),
                     SizedBox(width: 20),
                     Column(
@@ -308,11 +325,12 @@ class _MappingState extends State<Mapping> {
                         Text(
                           mentorName,
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
+                              fontWeight: FontWeight.bold, fontSize: 14),
                         ),
                         Text(
                           mentorId,
-                          style: TextStyle(fontWeight: FontWeight.w100),
+                          style: TextStyle(
+                              fontWeight: FontWeight.w100, fontSize: 12),
                         ),
                       ],
                     ),
@@ -321,7 +339,16 @@ class _MappingState extends State<Mapping> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 0.0),
                   child: ElevatedButton(
-                    child: Text("Assign"),
+                    style: ButtonStyle(
+                      minimumSize: WidgetStatePropertyAll(
+                          Size(60, 30)), // Set width and height
+                      backgroundColor: WidgetStatePropertyAll(
+                          Color.fromRGBO(32, 79, 220, 1)),
+                    ),
+                    child: Text(
+                      "Assign",
+                      style: TextStyle(color: Colors.white),
+                    ),
                     onPressed: () {},
                   ),
                 ),

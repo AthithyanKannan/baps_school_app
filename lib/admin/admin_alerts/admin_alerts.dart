@@ -1,4 +1,5 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
+import 'package:baps_school_app/admin/admin_home.dart';
 import 'package:baps_school_app/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +15,12 @@ class _AdminAlertsState extends State<AdminAlerts> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-      appBar:
-          CustomAppBar(icon: Icons.arrow_back, title: "Alerts", onPress: () {}),
+      appBar: CustomAppBar(
+          icon: Icons.arrow_back,
+          title: "Alerts",
+          onPress: () {
+            Navigator.pop(context);
+          }),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -34,7 +39,13 @@ class _AdminAlertsState extends State<AdminAlerts> {
         ],
       ),
       floatingActionButton: customFloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => AdminHome()),
+            (Route<dynamic> route) => false,
+          );
+        },
       ),
     );
   }
@@ -42,7 +53,7 @@ class _AdminAlertsState extends State<AdminAlerts> {
   Widget adminAlertCard() {
     return SizedBox(
       height: 200,
-      width: 370,
+      width: 360,
       child: Card(
         color: Colors.white,
         child: Padding(
@@ -58,38 +69,42 @@ class _AdminAlertsState extends State<AdminAlerts> {
                 children: [
                   Text(
                     "Prakesh Raj",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   Text(
                     "20/10/2024",
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(color: Colors.grey, fontSize: 12),
                   ),
                 ],
               ),
               SizedBox(
                 height: 10,
               ),
-              Text("Science - Level 1"),
+              Text(
+                "Science - Level 1",
+                style: TextStyle(fontSize: 14),
+              ),
               SizedBox(
                 height: 7,
               ),
-              Text("Grade"),
+              Text("Grade 1"),
               SizedBox(
                 height: 7,
               ),
               Text(
                 "Homework Not Evaluated",
-                style: TextStyle(color: Colors.red),
+                style: TextStyle(color: Colors.red, fontSize: 14),
               ),
               SizedBox(
                 height: 7,
               ),
               Center(
                 child: customButton(
+                  fontSize: 14,
                   text: "Create Issue",
                   onPressed: () {},
-                  backgroundColor: const Color.fromARGB(255, 21, 111, 184),
-                  padding: EdgeInsets.symmetric(horizontal: 120),
+                  backgroundColor: const Color.fromRGBO(32, 79, 220, 1),
+                  padding: EdgeInsets.symmetric(horizontal: 100),
                 ),
               )
             ],

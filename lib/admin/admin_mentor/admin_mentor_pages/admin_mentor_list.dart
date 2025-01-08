@@ -15,7 +15,7 @@ class _AdminMentorListState extends State<AdminMentorList> {
     return Scaffold(
         backgroundColor: backgroundColor,
         appBar: CustomAppBar(
-            icon: Icons.home,
+            icon: Icons.arrow_back,
             title: "Mentor List",
             onPress: () {
               Navigator.pop(context);
@@ -108,7 +108,7 @@ class _AdminMentorListState extends State<AdminMentorList> {
         10.0, // Border radius for the container (default is 10)
   }) {
     return Container(
-      height: 220,
+      height: 200,
       width: 180,
       decoration: BoxDecoration(
         color: backgroundColor, // Background color
@@ -125,13 +125,13 @@ class _AdminMentorListState extends State<AdminMentorList> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CircleAvatar(radius: 40),
+          CircleAvatar(radius: 35,backgroundImage: AssetImage("assets/admin_mentor_profile_icon.png"),),
           SizedBox(height: 10),
           Text(
             mentorName,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12),
           ),
-          Text(mentorId),
+          Text(mentorId,style: TextStyle(color: Colors.grey,fontSize: 10),),
           SizedBox(
             height: 10,
           ),
@@ -140,7 +140,8 @@ class _AdminMentorListState extends State<AdminMentorList> {
             child: customButton(
               text: "View",
               onPressed: onPressed,
-              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 7),
+              backgroundColor: Color.fromRGBO(45, 80, 253, 1),
+              padding: EdgeInsets.only(bottom: 1,left: 35,top: 1,right: 35),
             ),
           ),
         ],
@@ -165,16 +166,19 @@ class _AdminMentorDetailsState extends State<AdminMentorDetails> {
           icon: Icons.arrow_back,
           title: "Mentor Details",
           onPress: () { Navigator.pop(context);},),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Column(
-            children: [
-              mentorStatusCard(),
-              mentorInfoCard(),
-            ],
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Column(
+              children: [
+                SizedBox(height: 10,),
+                mentorStatusCard(),
+                mentorInfoCard(),
+              ],
+            ),
+          ],
+        ),
       ),
       floatingActionButton: customFloatingActionButton(onPressed: () {
         
@@ -185,7 +189,7 @@ class _AdminMentorDetailsState extends State<AdminMentorDetails> {
   Widget mentorInfoCard() {
     return SizedBox(
       height: 100,
-      width: 350,
+      width: 370,
       child: Card(
         color: Colors.white,
         child: Row(
@@ -262,8 +266,8 @@ class _AdminMentorDetailsState extends State<AdminMentorDetails> {
 
   Widget mentorStatusCard() {
     return SizedBox(
-      height: 170,
-      width: 350,
+      height: 160,
+      width: 370,
       child: Card(
         color: Colors.white,
         child: Padding(
@@ -276,8 +280,8 @@ class _AdminMentorDetailsState extends State<AdminMentorDetails> {
                   Row(
                     children: [
                       CircleAvatar(
-                        radius: 30,
-                        // backgroundImage: NetworkImage(avatarUrl),  // Use an image URL
+                        radius: 27,
+                        backgroundImage: AssetImage("assets/admin_mentor_profile_icon.png"),  // Use an image URL
                       ),
                       SizedBox(width: 20),
                       Column(
@@ -285,14 +289,15 @@ class _AdminMentorDetailsState extends State<AdminMentorDetails> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Name: Mr.Tharun",
+                            "Name : Mr. Tharun",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
+                              fontSize: 13
                             ),
                           ),
                           Text(
                             "Mentor ID: MA10101",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13),
                           ),
                         ],
                       ),
@@ -302,7 +307,7 @@ class _AdminMentorDetailsState extends State<AdminMentorDetails> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 0.0),
                     child: IconButton(
-                      icon: Icon(Icons.menu),
+                      icon: Icon(Icons.more_vert),
                       onPressed: () {},
                     ),
                   ),
@@ -315,24 +320,21 @@ class _AdminMentorDetailsState extends State<AdminMentorDetails> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   mentorAttendanceWidget(
-                      icon: Icons.time_to_leave,
-                      iconBackgroundColor: Colors.green,
+                    iconImage: AssetImage("assets/admin_total_icon.png"),
                       title: "Total",
                       value: "56"),
                   SizedBox(
-                    width: 2,
+                    width: 4,
                   ),
-                  mentorAttendanceWidget(
-                      icon: Icons.lock_clock,
-                      iconBackgroundColor: Colors.orange,
+                                mentorAttendanceWidget(
+                    iconImage: AssetImage("assets/admin_present_icon.png"),
                       title: "Present",
                       value: "53"),
                   SizedBox(
-                    width: 2,
+                    width: 4,
                   ),
-                  mentorAttendanceWidget(
-                      icon: Icons.exit_to_app,
-                      iconBackgroundColor: Colors.red,
+                                  mentorAttendanceWidget(
+                    iconImage: AssetImage("assets/admin_absent_icon.png"),
                       title: "Leave",
                       value: "3"),
                 ],
@@ -344,51 +346,54 @@ class _AdminMentorDetailsState extends State<AdminMentorDetails> {
     );
   }
 
-  Widget mentorAttendanceWidget({
-    required IconData icon, // Icon for the widget
-    required Color iconBackgroundColor, // Background color of the icon
-    required String title, // Title text (e.g., "Total")
-    required String value, // Value text (e.g., "56")
-  }) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        // Icon with background color
-        Container(
-          height: 43,
-          width: 43,
-          decoration: BoxDecoration(
-              color: iconBackgroundColor,
-              borderRadius: BorderRadius.circular(5)),
-          child: Icon(
-            icon,
-            color: Colors.white,
-            size: 20,
+Widget mentorAttendanceWidget({
+  required AssetImage iconImage, // AssetImage for the icon
+  required String title, // Title text (e.g., "Total")
+  required String value, // Value text (e.g., "56")
+}) {
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      // Container with rounded corners and image as the icon
+      Container(
+        height: 40,
+        width: 40,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8), // Border radius for rounded corners
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8), // Apply the same border radius to the image
+          child: Image(
+            image: iconImage, // Use AssetImage here
+            fit: BoxFit.cover, // Ensure the image fits within the container
           ),
         ),
-        SizedBox(width: 10), // Space between icon and text
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
-              ),
+      ),
+      SizedBox(width: 10), // Space between icon and text
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
-            Text(
-              value,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
+          ),
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
-          ],
-        ),
-      ],
-    );
-  }
+          ),
+        ],
+      ),
+    ],
+  );
+}
+
+
 }

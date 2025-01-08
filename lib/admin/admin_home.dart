@@ -1,5 +1,7 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
+import 'package:baps_school_app/admin/admin_activity/admin_activity.dart';
 import 'package:baps_school_app/admin/admin_alerts/admin_alerts.dart';
+import 'package:baps_school_app/admin/admin_approvals/admin_approvals.dart';
 import 'package:baps_school_app/admin/admin_mentor/admin_mentor.dart';
 import 'package:baps_school_app/admin/admin_student/admin_student.dart';
 import 'package:baps_school_app/colors.dart';
@@ -19,8 +21,23 @@ class _AdminHomeState extends State<AdminHome> {
       backgroundColor: backgroundColor,
       appBar: AppBar(
         backgroundColor: backgroundColor,
-        leading: Icon(Icons.arrow_back),
-        title: Text("Menu"),
+        leading: IconButton(
+          icon: Image.asset(
+            "assets/menu_back_button.png",
+            height: 30, // Set the height to 30px
+            width: 30, // Set the width to 30px
+          ),
+          onPressed: () {
+            // Action for back button
+          },
+        ),
+        title: Text(
+          "Menu",
+          style: TextStyle(
+              fontSize: 28,
+              color: Color.fromRGBO(74, 94, 109, 1),
+              fontWeight: FontWeight.bold),
+        ),
       ),
       body: Column(
         children: [
@@ -37,7 +54,9 @@ class _AdminHomeState extends State<AdminHome> {
                     ));
               },
               child: MenuCard(
-                  image: AssetImage("assets/admin_student_icon.png"), text: "Student", iconColor: Colors.green),
+                  image: AssetImage("assets/admin_student_icon.png"),
+                  text: "Student",
+                  iconColor: Colors.green),
             ),
             GestureDetector(
               onTap: () {
@@ -70,19 +89,37 @@ class _AdminHomeState extends State<AdminHome> {
                   text: "Alerts",
                   iconColor: Colors.orange),
             ),
-            MenuCard(
-                image: AssetImage("assets/admin_approvals_icon.png"),
-                text: "Approvals",
-                iconColor: Colors.green)
+            GestureDetector(
+                 onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AdminApprovals(),
+                    ));
+              },
+              child: MenuCard(
+                  image: AssetImage("assets/admin_approvals_icon.png"),
+                  text: "Approvals",
+                  iconColor: Colors.green),
+            )
           ]),
           SizedBox(
             height: 30,
           ),
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            MenuCard(
-                image: AssetImage("assets/admin_activity_icon.png"),
-                text: "Activity",
-                iconColor: Colors.yellow),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AdminActivity(),
+                    ));
+              },
+              child: MenuCard(
+                  image: AssetImage("assets/admin_activity_icon.png"),
+                  text: "Activity",
+                  iconColor: Colors.yellow),
+            ),
             MenuCard(
                 image: AssetImage("assets/admin_calender_icon.png"),
                 text: "Schedule",

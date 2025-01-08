@@ -87,13 +87,9 @@ class _AdminMentorState extends State<AdminMentor> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        backgroundColor: Color.fromRGBO(174, 188, 255, 1),
-        child: Icon(Icons.home),
-      ),
+      floatingActionButton: customFloatingActionButton(onPressed: () {
+        
+      },),
     );
   }
 }

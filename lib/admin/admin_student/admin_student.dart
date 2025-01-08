@@ -75,16 +75,9 @@ class _AdminStudentState extends State<AdminStudent>
           (index) => Grade(),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(255, 131, 197, 252),
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        child: Icon(
-          Icons.home,
-          color: Colors.blue,
-        ),
-      ),
+      floatingActionButton: customFloatingActionButton(onPressed: () {
+        
+      },),
     );
   }
 
