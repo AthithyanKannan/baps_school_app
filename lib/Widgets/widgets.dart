@@ -6,10 +6,13 @@ Widget textField({
   required String hintText,
   bool isPassword = false,
   TextInputType keyboardType = TextInputType.text,
+  EdgeInsetsGeometry padding = const EdgeInsets.symmetric(
+      vertical: 8.0, horizontal: 20.0), // Default padding
+  Color backgroundColor = const Color.fromARGB(
+      255, 241, 239, 239), // Default light grey background color
 }) {
   return Padding(
-    padding: const EdgeInsets.symmetric(
-        vertical: 8.0, horizontal: 20), // Reduced vertical padding
+    padding: padding, // Use parameterized padding
     child: TextField(
       obscureText: isPassword, // Handle password visibility
       keyboardType: keyboardType, // Handle keyboard type
@@ -18,8 +21,7 @@ Widget textField({
         hintText: hintText, // Placeholder text
         hintStyle: TextStyle(fontSize: 14), // Reduced hint font size
         filled: true,
-        fillColor: const Color.fromARGB(
-            255, 241, 239, 239), // Light grey background color
+        fillColor: backgroundColor, // Use parameterized background color
         border: OutlineInputBorder(
           borderRadius:
               BorderRadius.circular(8), // Slightly smaller border radius
@@ -90,81 +92,79 @@ Widget customRoundedIconButton({
   );
 }
 
-
 Widget customDropdown({
-    required List<String> options, // Dropdown options
-    required String hintText, // Hint text for the dropdown
-    required String? selectedValue, // Currently selected value
-    required ValueChanged<String?>
-        onChanged, // Callback for when an item is selected
-  }) {
-    return Container(
-      height: 45,
-      width: 320,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: DropdownButtonHideUnderline(
-        child: DropdownButton2(
-          isExpanded: true,
-          hint: Text(
-            hintText,
-            style: const TextStyle(
-              fontSize: 14,
-              color: Colors.black,
-            ),
+  required List<String> options, // Dropdown options
+  required String hintText, // Hint text for the dropdown
+  required String? selectedValue, // Currently selected value
+  required ValueChanged<String?>
+      onChanged, // Callback for when an item is selected
+}) {
+  return Container(
+    height: 45,
+    width: 320,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(20),
+    ),
+    child: DropdownButtonHideUnderline(
+      child: DropdownButton2(
+        isExpanded: true,
+        hint: Text(
+          hintText,
+          style: const TextStyle(
+            fontSize: 14,
+            color: Colors.grey,
           ),
-          items: options
-              .map((item) => DropdownMenuItem<String>(
-                    value: item,
-                    child: Text(
-                      item,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.black,
-                      ),
+        ),
+        items: options
+            .map((item) => DropdownMenuItem<String>(
+                  value: item,
+                  child: Text(
+                    item,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.black,
                     ),
-                  ))
-              .toList(),
-          value: selectedValue,
-          onChanged: onChanged,
-          buttonStyleData: const ButtonStyleData(
-            padding: EdgeInsets.symmetric(horizontal: 14),
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(247, 248, 250, 1),
-            ),
+                  ),
+                ))
+            .toList(),
+        value: selectedValue,
+        onChanged: onChanged,
+        buttonStyleData: ButtonStyleData(
+          padding: EdgeInsets.symmetric(horizontal: 14),
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(247, 248, 250, 1),
+            borderRadius: BorderRadius.circular(8),
           ),
-          iconStyleData: const IconStyleData(
-            icon: Icon(
-              Icons.arrow_drop_down,
-              color: Colors.black,
-            ),
-            iconSize: 24,
+        ),
+        iconStyleData: const IconStyleData(
+          icon: Icon(
+            Icons.arrow_drop_down,
+            color: Colors.grey,
           ),
-          dropdownStyleData: DropdownStyleData(
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(247, 248, 250, 1),
-              borderRadius: BorderRadius.circular(8),
-            ),
+          iconSize: 24,
+        ),
+        dropdownStyleData: DropdownStyleData(
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(247, 248, 250, 1),
+            borderRadius: BorderRadius.circular(8),
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 
-Widget customButton({
-  required String text,
-  required VoidCallback? onPressed,
-  Color backgroundColor = Colors.blue,
-  Color textColor = Colors.white,
-  EdgeInsetsGeometry padding =
-      const EdgeInsets.symmetric(horizontal: 85, vertical: 12),
-  BorderRadiusGeometry borderRadius =
-      const BorderRadius.all(Radius.circular(8)),
-  double letterSpacing = 0.0,
-  double fontSize = 12
-
-}) {
+Widget customButton(
+    {required String text,
+    required VoidCallback? onPressed,
+    Color backgroundColor = Colors.blue,
+    Color textColor = Colors.white,
+    EdgeInsetsGeometry padding =
+        const EdgeInsets.symmetric(horizontal: 85, vertical: 12),
+    BorderRadiusGeometry borderRadius =
+        const BorderRadius.all(Radius.circular(8)),
+    double letterSpacing = 0.0,
+    double fontSize = 12}) {
   return ElevatedButton(
     onPressed: onPressed,
     style: ButtonStyle(
@@ -178,7 +178,8 @@ Widget customButton({
     ),
     child: Text(
       text,
-      style: TextStyle(color: textColor, letterSpacing: letterSpacing,fontSize: fontSize),
+      style: TextStyle(
+          color: textColor, letterSpacing: letterSpacing, fontSize: fontSize),
     ),
   );
 }
@@ -335,39 +336,32 @@ class TimelineList extends StatelessWidget {
   Widget build(BuildContext context) {
     final dates = getDates();
     final subjects = getSubjects();
-
     return ListView.builder(
       padding: const EdgeInsets.all(16.0),
       itemCount: dates.length,
       itemBuilder: (context, index) {
         return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          padding: const EdgeInsets.all(16),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // const SizedBox(width: 10),
               // Date widget
-              Text(
-                dates[index],
-                style: const TextStyle(fontSize: 14, color: Colors.grey),
+              SizedBox(
+                width: 120, // Fixed width to align all time slots
+                child: Text(
+                  dates[index],
+                  style: const TextStyle(fontSize: 12, color: Colors.grey),
+                ),
               ),
-              if (dates[index] == "9:40 AM - 10:30 AM" ||
-                  dates[index] == "11:00 AM - 12:00 PM")
-                const SizedBox(width: 30),
-              if (dates[index] == "9:00 AM - 9:40 AM" ||
-                  dates[index] == "1:00 PM - 1:50 PM" ||
-                  dates[index] == "1:50 PM - 2:40 PM" ||
-                  dates[index] == "3:10 PM - 4:00 PM")
-                const SizedBox(width: 45),
+              const SizedBox(width: 30),
               // Timeline connector and subject details
-
               Column(
                 children: [
                   Container(
                     width: 12,
                     height: 12,
                     decoration: const BoxDecoration(
-                      color: Colors.blue,
+                      color: Color.fromRGBO(12, 54, 255, 1),
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -379,7 +373,7 @@ class TimelineList extends StatelessWidget {
                     ),
                 ],
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 15),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -387,13 +381,14 @@ class TimelineList extends StatelessWidget {
                     // Subject
                     Row(
                       children: [
-                        const Icon(Icons.book, color: Colors.blue, size: 20),
+                        const Icon(Icons.book,
+                            color: Color.fromRGBO(12, 54, 255, 1), size: 20),
                         const SizedBox(width: 8),
                         Text(
                           subjects[index],
                           style: const TextStyle(
                             fontSize: 14,
-                            // fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.bold
                           ),
                         ),
                       ],
@@ -402,11 +397,12 @@ class TimelineList extends StatelessWidget {
                     // Faculty
                     Row(
                       children: const [
-                        Icon(Icons.person, color: Colors.blue, size: 20),
+                        Icon(Icons.person,
+                            color: Color.fromRGBO(12, 54, 255, 1), size: 20),
                         SizedBox(width: 8),
                         Text(
                           'Faculty',
-                          style: TextStyle(fontSize: 14),
+                          style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -420,6 +416,7 @@ class TimelineList extends StatelessWidget {
     );
   }
 }
+
 
 PreferredSizeWidget CustomAppBar({
   required IconData icon, // Icon to display in the leading section
@@ -440,7 +437,7 @@ PreferredSizeWidget CustomAppBar({
     ),
     title: Text(
       title,
-      style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),
+      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
     ),
     bottom: PreferredSize(
       preferredSize: Size.fromHeight(1.0), // Height of the border
@@ -456,7 +453,7 @@ Widget customFloatingActionButton({
   required VoidCallback onPressed, // Callback for when the button is pressed
 }) {
   return FloatingActionButton(
-    heroTag: null,
+      heroTag: null,
       shape: CircleBorder(),
       elevation: 0,
       onPressed: onPressed,

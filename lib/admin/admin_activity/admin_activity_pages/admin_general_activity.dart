@@ -53,6 +53,9 @@ class _AdminGeneralActivityState extends State<AdminGeneralActivity> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        SizedBox(
+                          height: 10,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10.0),
                           child: Text(
@@ -61,7 +64,16 @@ class _AdminGeneralActivityState extends State<AdminGeneralActivity> {
                                 fontSize: 12, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        textField(hintText: "Student Name"),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        textField(
+                            hintText: "Student Name",
+                            backgroundColor: Color.fromRGBO(247, 248, 250, 1),
+                            padding: EdgeInsets.symmetric(horizontal: 13)),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10.0),
                           child: Text(
@@ -69,6 +81,9 @@ class _AdminGeneralActivityState extends State<AdminGeneralActivity> {
                             style: TextStyle(
                                 fontSize: 12, fontWeight: FontWeight.bold),
                           ),
+                        ),
+                        SizedBox(
+                          height: 10,
                         ),
                         Center(
                           child: customDropdown(
@@ -99,6 +114,9 @@ class _AdminGeneralActivityState extends State<AdminGeneralActivity> {
                                   fontSize: 12, fontWeight: FontWeight.bold),
                             ),
                           ),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Center(
                               child: customDropdown(
                             selectedValue: selectedFeeType,
@@ -120,7 +138,10 @@ class _AdminGeneralActivityState extends State<AdminGeneralActivity> {
                                   fontSize: 12, fontWeight: FontWeight.bold),
                             ),
                           ),
-                          textField(hintText: "Enter Amount"),
+                          textField(
+                              hintText: "Enter amount",
+                              backgroundColor: Color.fromRGBO(247, 248, 250, 1),
+                              padding: EdgeInsets.symmetric(horizontal: 13)),
                         ],
                         if (showCollectionDetails) ...[
                           SizedBox(height: 10),
@@ -133,7 +154,13 @@ class _AdminGeneralActivityState extends State<AdminGeneralActivity> {
                                   fontSize: 12, fontWeight: FontWeight.bold),
                             ),
                           ),
-                          textField(hintText: "Enter Collection Details"),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          textField(
+                              hintText: "Enter Collection",
+                              backgroundColor: Color.fromRGBO(247, 248, 250, 1),
+                              padding: EdgeInsets.symmetric(horizontal: 13)),
                         ],
                         if (showDescription) ...[
                           SizedBox(height: 10),
@@ -146,8 +173,18 @@ class _AdminGeneralActivityState extends State<AdminGeneralActivity> {
                                   fontSize: 12, fontWeight: FontWeight.bold),
                             ),
                           ),
-                          textField(hintText: "Enter Description"),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          textField(
+                            hintText: "Enter Description",
+                            backgroundColor: Color.fromRGBO(247, 248, 250, 1),
+                            padding: EdgeInsets.symmetric(horizontal: 13),
+                          ),
                         ],
+                        SizedBox(
+                          height: 10,
+                        ),
                         Center(
                           child: customButton(
                             text: "Submit",

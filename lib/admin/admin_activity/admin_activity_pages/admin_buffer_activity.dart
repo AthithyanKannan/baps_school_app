@@ -1,6 +1,5 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
 import 'package:baps_school_app/colors.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 class AdminBufferActivity extends StatefulWidget {
@@ -75,12 +74,12 @@ class _AdminBufferActivityState extends State<AdminBufferActivity> {
 
   Widget adminBufferActivityCard() {
     return SizedBox(
-      height: 180,
-      width: 370,
+      height: 182,
+      width: 360,
       child: Card(
         color: Colors.white,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

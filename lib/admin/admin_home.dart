@@ -3,6 +3,7 @@ import 'package:baps_school_app/admin/admin_activity/admin_activity.dart';
 import 'package:baps_school_app/admin/admin_alerts/admin_alerts.dart';
 import 'package:baps_school_app/admin/admin_approvals/admin_approvals.dart';
 import 'package:baps_school_app/admin/admin_mentor/admin_mentor.dart';
+import 'package:baps_school_app/admin/admin_schedule/admin_schedule.dart';
 import 'package:baps_school_app/admin/admin_student/admin_student.dart';
 import 'package:baps_school_app/colors.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +91,7 @@ class _AdminHomeState extends State<AdminHome> {
                   iconColor: Colors.orange),
             ),
             GestureDetector(
-                 onTap: () {
+              onTap: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -120,10 +121,19 @@ class _AdminHomeState extends State<AdminHome> {
                   text: "Activity",
                   iconColor: Colors.yellow),
             ),
-            MenuCard(
-                image: AssetImage("assets/admin_calender_icon.png"),
-                text: "Schedule",
-                iconColor: Colors.green)
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AdminSchedule(),
+                    ));
+              },
+              child: MenuCard(
+                  image: AssetImage("assets/admin_calender_icon.png"),
+                  text: "Schedule",
+                  iconColor: Colors.green),
+            )
           ]),
         ],
       ),
