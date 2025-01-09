@@ -25,13 +25,13 @@ class _LoginState extends State<Login> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 70,
+                height: 50,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20.0),
                 child: Text(
-                  "Hi!",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  "Hi! ",
+                  style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                 ),
               ),
               SizedBox(
@@ -41,19 +41,20 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.only(left: 20.0),
                 child: Text(
                   "Login to continue",
-                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                  style: TextStyle(fontSize: 15, color: Colors.grey),
                 ),
               ),
+              SizedBox(height: 20,),
               Center(
                 child: Image.asset(
-                  'assets/loginImage-removebg-preview.png',
-                  height: 230,
-                  width: 170,
+                  'assets/loginImage.png',
+                  fit: BoxFit.fitHeight,
                 ),
               ),
-              textField(hintText: "Email"),
-              SizedBox(height: 10),
-              textField(hintText: "Password", isPassword: true),
+              SizedBox(height: 20,),
+              textField(hintText: "Email",padding: EdgeInsets.symmetric(horizontal: 10)),
+              SizedBox(height: 20),
+              textField(hintText: "Password", isPassword: true,padding: EdgeInsets.symmetric(horizontal: 10)),
               SizedBox(height: 20),
               Row(
                 children: [
@@ -68,7 +69,7 @@ class _LoginState extends State<Login> {
                   Flexible(
                     child: Text(
                       "I agree to the privacy policy",
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: 14),
                     ),
                   ),
                 ],
@@ -76,7 +77,8 @@ class _LoginState extends State<Login> {
               SizedBox(height: 20),
               Center(
                 child: customButton(
-                    text: "Login",
+                    text: "LOGIN",
+                    fontSize: 14,
                     onPressed: _isChecked
                         ? () {
                             Navigator.push(
@@ -86,7 +88,7 @@ class _LoginState extends State<Login> {
                             );
                           }
                         : null,
-                    backgroundColor: _isChecked ? Colors.blue : Colors.grey),
+                    backgroundColor: _isChecked ? Color.fromRGBO(40, 66, 196, 1) : Colors.grey),
               ),
               SizedBox(height: 20),
               Row(
@@ -102,7 +104,7 @@ class _LoginState extends State<Login> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Text("OR"),
+                    child: Text("OR",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold),),
                   ),
                   Expanded(
                     child: Divider(
@@ -115,19 +117,21 @@ class _LoginState extends State<Login> {
                 ],
               ),
               SizedBox(
-                height: 10,
+                height: 20,
               ),
               Center(
                   child: Text(
                 "Login with google",
-                style: TextStyle(fontSize: 16),
-              )),
+                style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)),
+              ),
               SizedBox(
-                height: 10,
+                height: 20,
               ),
               Center(
                 child: SignInButton(
-                  Buttons.googleDark,
+                  Buttons.google,
+                  elevation: 1,
+                  padding: EdgeInsets.symmetric(horizontal: 30),
                   text: "Continue with Google",
                   onPressed: () {
                     // Implement your Google Sign-In logic here

@@ -38,7 +38,7 @@ class _AdminScheduleState extends State<AdminSchedule>
             child: const Icon(Icons.home)),
         backgroundColor: Colors.white,
         title: const Text(
-          "Student",
+          "Academic Schedule",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         bottom: PreferredSize(
@@ -170,12 +170,13 @@ class _AdminSchedulePageState extends State<AdminSchedulePage>
             child: const Icon(Icons.home)),
         backgroundColor: Colors.white,
         title: const Text(
-          "Student",
+          "Academic Schedule",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(100.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 color: Colors.black, // Color of the border line
@@ -184,48 +185,60 @@ class _AdminSchedulePageState extends State<AdminSchedulePage>
               SizedBox(
                 height: 10,
               ),
-              ButtonsTabBar(
-                controller: _gradeTabController,
-                backgroundColor: Color.fromRGBO(24, 87, 192, 1),
-                unselectedBackgroundColor: Colors.white,
-                unselectedLabelStyle: const TextStyle(color: Colors.black),
-                labelStyle: const TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold,fontSize: 12),
-                borderWidth: 1,
-                borderColor: Color.fromRGBO(24, 87, 192, 1),
-                unselectedBorderColor: Colors.white,
-                radius: 20,
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                tabs: List.generate(
-                  10,
-                  (index) => Tab(
-                    text: "Grade ${index + 1}",
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: ButtonsTabBar(
+                  physics: ClampingScrollPhysics(),
+                  controller: _gradeTabController,
+                  backgroundColor: Color.fromRGBO(53, 87, 255, 1),
+                  unselectedBackgroundColor: Colors.white,
+                  unselectedLabelStyle: const TextStyle(color: Colors.black),
+                  labelStyle: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12),
+                  borderColor: Color.fromRGBO(24, 87, 192, 1),
+                  unselectedBorderColor: Colors.white,
+                  radius: 20,
+                  contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
+                  tabs: List.generate(
+                    10,
+                    (index) => Tab(
+                      text: "Grade ${index + 1}",
+                    ),
                   ),
                 ),
               ),
-              SizedBox(height: 5,),
-              ButtonsTabBar(
-                controller: _dayTabController,
-                backgroundColor: Color.fromRGBO(24, 87, 192, 1),
-                unselectedBackgroundColor: Colors.white,
-                unselectedLabelStyle: const TextStyle(color: Colors.black),
-                labelStyle: const TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold,fontSize: 12),
-                borderWidth: 1,
-                borderColor: Color.fromRGBO(24, 87, 192, 1),
-                unselectedBorderColor: Colors.white,
-                radius: 20,
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                tabs: const [
-                  Tab(text: "Mon"),
-                  Tab(text: "Tue"),
-                  Tab(text: "Wed"),
-                  Tab(text: "Thu"),
-                  Tab(text: "Fri"),
-                  Tab(text: "Sat"),
-                ],
+              SizedBox(
+                height: 5,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: ButtonsTabBar(
+                  controller: _dayTabController,
+                  backgroundColor: Color.fromRGBO(53, 87, 255, 1),
+                  unselectedBackgroundColor: Colors.white,
+                  unselectedLabelStyle: const TextStyle(color: Colors.black),
+                  labelStyle: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 13),
+                  borderWidth: 1,
+                  borderColor: Color.fromRGBO(24, 87, 192, 1),
+                  unselectedBorderColor: Colors.white,
+                  radius: 20,
+                  contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
+                  tabs: const [
+                    Tab(text: "Mon"),
+                    Tab(text: "Tue"),
+                    Tab(text: "Wed"),
+                    Tab(text: "Thu"),
+                    Tab(text: "Fri"),
+                    Tab(text: "Sat"),
+                  ],
+                ),
               ),
             ],
           ),
@@ -243,6 +256,9 @@ class _AdminSchedulePageState extends State<AdminSchedulePage>
             ),
           ),
         ),
+      ),
+      floatingActionButton: customFloatingActionButton(
+        onPressed: () {},
       ),
     );
   }

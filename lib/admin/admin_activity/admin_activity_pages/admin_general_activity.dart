@@ -45,11 +45,11 @@ class _AdminGeneralActivityState extends State<AdminGeneralActivity> {
             ),
             Center(
               child: SizedBox(
-                width: 370,
+                width: 350,
                 child: Card(
                   color: Colors.white,
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

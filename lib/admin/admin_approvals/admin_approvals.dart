@@ -58,13 +58,13 @@ class _AdminApprovalsState extends State<AdminApprovals> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: SizedBox(
-        height: 201,
+        height: 230,
         width: 350,
         child: Card(
           elevation: 0.1,
           color: Colors.white,
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,30 +108,31 @@ class _AdminApprovalsState extends State<AdminApprovals> {
                   ],
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 10,
                 ),
                 Text(
                   "Mathematics",
                   style: TextStyle(fontSize: 14),
                 ),
                 SizedBox(
-                  height: 2,
+                  height: 5,
                 ),
                 Text("Grade VI-A", style: TextStyle(fontSize: 14)),
                 SizedBox(
-                  height: 2,
+                  height: 5,
                 ),
                 Text("Completed Self-Assessment ",
                     style: TextStyle(
                         fontSize: 12, color: Color.fromRGBO(39, 174, 96, 1))),
                 SizedBox(
-                  height: 5,
+                  height: 10,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     customButton(
                       text: "Reject",
+                      borderRadius: BorderRadius.circular(30),
                       onPressed: () {},
                       padding:
                           EdgeInsets.symmetric(horizontal: 45, vertical: 10),
@@ -141,6 +142,7 @@ class _AdminApprovalsState extends State<AdminApprovals> {
                     ),
                     customButton(
                         text: "Accept",
+                        borderRadius: BorderRadius.circular(30),
                         onPressed: () {},
                         padding:
                             EdgeInsets.symmetric(horizontal: 45, vertical: 10),

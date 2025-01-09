@@ -15,66 +15,55 @@ class _AdminStudentProfileState extends State<AdminStudentProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
-      appBar: AppBar(
         backgroundColor: backgroundColor,
-        title: Text("Student Profile"),
-        leading: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Icon(Icons.arrow_back)),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            searchTextField(hintText: "Search", controller: searchController),
-            SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: StudentList(),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Text(
-                "Recent Searches",
-                style: TextStyle(color: Colors.grey),
+        appBar: CustomAppBar(
+          icon: Icons.arrow_back,
+          title: "Student Profile",
+          onPress: () {
+            Navigator.pop(context);
+          },
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              searchTextField(
+                  hintText: "Search Student", controller: searchController),
+              SizedBox(
+                height: 10,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: StudentList(),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: StudentList(),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Text(
+                  "Recent Searches",
+                  style: TextStyle(color: Colors.grey, fontSize: 12),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: StudentList(),
+              ),
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(255, 131, 197, 252),
-        onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => AdminHome(),
-              ));
-        },
-        child: Icon(
-          Icons.home,
-          color: Colors.blue,
-        ),
-      ),
-    );
+        floatingActionButton: customFloatingActionButton(
+          onPressed: () {},
+        ));
   }
 
   Widget StudentList() {
     return Container(
-      height: 310,
-      width: 330,
+      width: 350,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(5),
@@ -97,7 +86,28 @@ class _AdminStudentProfileState extends State<AdminStudentProfile> {
               ),
               CircleAvatar(
                 backgroundColor: Colors.white,
-                child: Icon(Icons.person),
+                child: Image.asset("assets/admin_student_profile_icon.png"),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                "Prakesh Raj K",
+                style: TextStyle(fontSize: 14),
+              )
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: 10,
+              ),
+              CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Image.asset("assets/admin_student_profile_icon.png"),
               ),
               SizedBox(
                 width: 10,
@@ -115,7 +125,7 @@ class _AdminStudentProfileState extends State<AdminStudentProfile> {
               ),
               CircleAvatar(
                 backgroundColor: Colors.white,
-                child: Icon(Icons.person),
+                child: Image.asset("assets/admin_student_profile_icon.png"),
               ),
               SizedBox(
                 width: 10,
@@ -133,7 +143,7 @@ class _AdminStudentProfileState extends State<AdminStudentProfile> {
               ),
               CircleAvatar(
                 backgroundColor: Colors.white,
-                child: Icon(Icons.person),
+                child: Image.asset("assets/admin_student_profile_icon.png"),
               ),
               SizedBox(
                 width: 10,
@@ -142,58 +152,7 @@ class _AdminStudentProfileState extends State<AdminStudentProfile> {
             ],
           ),
           SizedBox(
-            height: 10,
-          ),
-          Row(
-            children: [
-              SizedBox(
-                width: 10,
-              ),
-              CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(Icons.person),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text("Prakesh Raj K")
-            ],
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-            children: [
-              SizedBox(
-                width: 10,
-              ),
-              CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(Icons.person),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text("Prakesh Raj K")
-            ],
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-            children: [
-              SizedBox(
-                width: 10,
-              ),
-              CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(Icons.person),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text("Prakesh Raj K")
-            ],
+            height: 20,
           ),
         ],
       ),

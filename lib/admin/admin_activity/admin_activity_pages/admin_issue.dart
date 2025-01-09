@@ -45,10 +45,21 @@ class _AdminIssueState extends State<AdminIssue> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: SizedBox(
-        height: 250,
+        height: 260,
         width: 350,
-        child: Card(
-          color: Colors.white,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(247, 248, 250, 1),
+            borderRadius: BorderRadius.circular(8.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2),
+                spreadRadius: 0,
+                blurRadius: 10,
+                offset: Offset(3, 3),
+              ),
+            ],
+          ),
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Column(
@@ -107,24 +118,21 @@ class _AdminIssueState extends State<AdminIssue> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 6,
                 ),
                 Center(
                   child: Container(
                     padding: EdgeInsets.all(16.0),
-                    width: 300,
+                    width: 320,
                     decoration: BoxDecoration(
                       color: Color.fromRGBO(247, 248, 250, 1),
                       borderRadius: BorderRadius.circular(8.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.2),
-                          spreadRadius: 0,
-                          blurRadius: 1,
-                          offset: Offset(0, 3),
-                        ),
-                      ],
+                      border: Border.all(
+                        color: Colors.grey.shade400
+                        // color: Color.fromRGBO(231, 231, 231, 1))
+                      ),
                     ),
+          
                     child: Text(
                       "Student is saying that he came along with parents to school, and he is late to school because of traffic.",
                       style: TextStyle(fontSize: 12, color: Colors.black),

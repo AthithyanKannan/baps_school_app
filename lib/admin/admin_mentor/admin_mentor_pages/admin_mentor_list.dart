@@ -204,11 +204,11 @@ class _AdminMentorDetailsState extends State<AdminMentorDetails> {
                     TextSpan(
                         text: "Subject: ",
                         style: TextStyle(
-                            color: Colors.grey, fontWeight: FontWeight.bold)),
+                            color: Colors.grey, fontWeight: FontWeight.bold,fontSize: 14)),
                     TextSpan(
                         text: "Maths,Social",
                         style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold))
+                            color: Colors.black, fontWeight: FontWeight.bold,fontSize: 14))
                   ]),
                 ),
                 RichText(
@@ -216,11 +216,11 @@ class _AdminMentorDetailsState extends State<AdminMentorDetails> {
                     TextSpan(
                         text: "Issues: ",
                         style: TextStyle(
-                            color: Colors.grey, fontWeight: FontWeight.bold)),
+                            color: Colors.grey, fontWeight: FontWeight.bold,fontSize: 14)),
                     TextSpan(
                         text: "01",
                         style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold))
+                            color: Colors.black, fontWeight: FontWeight.bold,fontSize: 14))
                   ]),
                 ),
               ],
@@ -237,11 +237,11 @@ class _AdminMentorDetailsState extends State<AdminMentorDetails> {
                     TextSpan(
                         text: "Mentor For: ",
                         style: TextStyle(
-                            color: Colors.grey, fontWeight: FontWeight.bold)),
+                            color: Colors.grey, fontWeight: FontWeight.bold,fontSize: 14)),
                     TextSpan(
                         text: "Grade 5",
                         style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold))
+                            color: Colors.black, fontWeight: FontWeight.bold,fontSize: 14))
                   ]),
                 ),
                 RichText(
@@ -249,11 +249,11 @@ class _AdminMentorDetailsState extends State<AdminMentorDetails> {
                     TextSpan(
                         text: "Handling: ",
                         style: TextStyle(
-                            color: Colors.grey, fontWeight: FontWeight.bold)),
+                            color: Colors.grey, fontWeight: FontWeight.bold,fontSize: 14)),
                     TextSpan(
                         text: "Class 1,5,7",
                         style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold))
+                            color: Colors.black, fontWeight: FontWeight.bold,fontSize: 14))
                   ]),
                 ),
               ],
@@ -292,12 +292,12 @@ class _AdminMentorDetailsState extends State<AdminMentorDetails> {
                             "Name : Mr. Tharun",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 13
+                              fontSize: 15
                             ),
                           ),
                           Text(
                             "Mentor ID: MA10101",
-                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13),
+                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),
                           ),
                         ],
                       ),

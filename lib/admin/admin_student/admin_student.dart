@@ -41,30 +41,42 @@ class _AdminStudentState extends State<AdminStudent>
         backgroundColor: Colors.white,
         title: const Text(
           "Student",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, letterSpacing: 1, fontSize: 20),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(50.0),
-          child: ButtonsTabBar(
-            controller: _tabController,
-            backgroundColor: Color.fromRGBO(24, 87, 192, 1),
-            unselectedBackgroundColor: Colors.white,
-            unselectedLabelStyle: const TextStyle(color: Colors.black),
-            labelStyle: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold),
-            borderWidth: 1,
-            borderColor: Colors.blue,
-            unselectedBorderColor: Colors.white,
-            radius: 25,
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            tabs: List.generate(
-              10,
-              (index) => Tab(
-                text: "Grade ${index + 1}",
+          preferredSize: const Size.fromHeight(55.0),
+          child: Column(
+            children: [
+              Container(
+                color: Colors.black, // Color of the border line
+                height: 0.2, // Height of the border
               ),
-            ),
+              SizedBox(
+                height: 10,
+              ),
+              ButtonsTabBar(
+                controller: _tabController,
+                backgroundColor: Color.fromRGBO(24, 87, 192, 1),
+                unselectedBackgroundColor: Colors.white,
+                unselectedLabelStyle: const TextStyle(color: Colors.black),
+                labelStyle: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12),
+                borderWidth: 1,
+                borderColor: Color.fromRGBO(24, 87, 192, 1),
+                unselectedBorderColor: Colors.white,
+                radius: 25,
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                tabs: List.generate(
+                  10,
+                  (index) => Tab(
+                    text: "Grade ${index + 1}",
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
@@ -75,13 +87,13 @@ class _AdminStudentState extends State<AdminStudent>
           (index) => Grade(),
         ),
       ),
-      floatingActionButton: customFloatingActionButton(onPressed: () {
-        
-      },),
+      floatingActionButton: customFloatingActionButton(
+        onPressed: () {},
+      ),
     );
   }
 
-  Widget Grade() {
+ Widget Grade() {
     return Column(
       children: [
         SizedBox(
@@ -96,10 +108,10 @@ class _AdminStudentState extends State<AdminStudent>
                 ));
           },
           child: ScheduleCard(
-            textColor: Color.fromRGBO(101, 85, 143, 1),
+              textColor: Color.fromRGBO(101, 85, 143, 1),
               title: "Student Profile",
               color: Color.fromRGBO(232, 230, 237, 1),
-              image: AssetImage("assets/admin_mentor_icon.png")),
+              image: AssetImage("assets/admin_activity_general.png")),
         ),
         SizedBox(
           height: 20,
@@ -113,10 +125,10 @@ class _AdminStudentState extends State<AdminStudent>
                 ));
           },
           child: ScheduleCard(
-            textColor: Color.fromRGBO(238, 170, 22, 1),
-              title: "Issues Log",
+              textColor: Color.fromRGBO(238, 170, 22, 1),
+              title: "Issue log",
               color: Color.fromRGBO(255, 243, 220, 1),
-              image: AssetImage("assets/admin_mentor_icon.png")),
+              image: AssetImage("assets/admin_activity_issue.png")),
         ),
       ],
     );

@@ -56,12 +56,12 @@ class _AdminSurveyState extends State<AdminSurvey> {
   }
   Widget adminSurveyCard() {
     return SizedBox(
-      height: 182,
-      width: 360,
+      height: 195,
+      width: 350,
       child: Card(
         color: Colors.white,
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

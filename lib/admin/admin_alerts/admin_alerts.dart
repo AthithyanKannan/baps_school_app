@@ -52,24 +52,25 @@ class _AdminAlertsState extends State<AdminAlerts> {
 
   Widget adminAlertCard() {
     return SizedBox(
-      height: 200,
+      height: 205,
       width: 360,
       child: Card(
         color: Colors.white,
+        elevation: 0.79,
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 10,
+                height: 1,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "Prakesh Raj",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Text(
                     "20/10/2024",
@@ -82,7 +83,7 @@ class _AdminAlertsState extends State<AdminAlerts> {
               ),
               Text(
                 "Science - Level 1",
-                style: TextStyle(fontSize: 14),
+                style: TextStyle(fontSize: 14,fontWeight: FontWeight.normal,color: Colors.black),
               ),
               SizedBox(
                 height: 7,
@@ -100,11 +101,11 @@ class _AdminAlertsState extends State<AdminAlerts> {
               ),
               Center(
                 child: customButton(
-                  fontSize: 14,
+                  fontSize: 13,
                   text: "Create Issue",
                   onPressed: () {},
                   backgroundColor: const Color.fromRGBO(32, 79, 220, 1),
-                  padding: EdgeInsets.symmetric(horizontal: 100),
+                  padding: EdgeInsets.symmetric(horizontal: 120),
                 ),
               )
             ],

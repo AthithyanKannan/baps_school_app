@@ -21,7 +21,7 @@ Widget textField({
         hintText: hintText, // Placeholder text
         hintStyle: TextStyle(fontSize: 14), // Reduced hint font size
         filled: true,
-        fillColor: backgroundColor, // Use parameterized background color
+        fillColor: backgroundColor, // Use parameterized background colo 
         border: OutlineInputBorder(
           borderRadius:
               BorderRadius.circular(8), // Slightly smaller border radius
@@ -103,10 +103,14 @@ Widget customDropdown({
     height: 45,
     width: 320,
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(20),
+      // border: Border.all(
+      //   // color: Color.fromRGBO(231, 231, 231, 1)
+      // ),
+      borderRadius: BorderRadius.circular(15),
     ),
     child: DropdownButtonHideUnderline(
       child: DropdownButton2(
+
         isExpanded: true,
         hint: Text(
           hintText,
@@ -168,6 +172,7 @@ Widget customButton(
   return ElevatedButton(
     onPressed: onPressed,
     style: ButtonStyle(
+      elevation: WidgetStateProperty.all(0),
       backgroundColor: WidgetStatePropertyAll(backgroundColor),
       padding: WidgetStatePropertyAll(padding),
       shape: WidgetStatePropertyAll(
@@ -347,10 +352,14 @@ class TimelineList extends StatelessWidget {
             children: [
               // Date widget
               SizedBox(
-                width: 120, // Fixed width to align all time slots
+                width: 121, // Fixed width to align all time slots
                 child: Text(
                   dates[index],
-                  style: const TextStyle(fontSize: 12, color: Colors.grey),
+                  style: const TextStyle(
+                    fontSize: 13,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               const SizedBox(width: 30),
@@ -365,15 +374,16 @@ class TimelineList extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                   ),
+                  SizedBox(height: 10,),
                   if (index < dates.length - 1)
                     Container(
                       width: 2,
-                      height: 50,
-                      color: Colors.grey.shade300,
+                      height: 100,
+                      color: Color.fromRGBO(121, 145, 164, 1),
                     ),
                 ],
               ),
-              const SizedBox(width: 15),
+              const SizedBox(width: 23),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -382,18 +392,34 @@ class TimelineList extends StatelessWidget {
                     Row(
                       children: [
                         const Icon(Icons.book,
-                            color: Color.fromRGBO(12, 54, 255, 1), size: 20),
-                        const SizedBox(width: 8),
+                            color: Color.fromRGBO(53, 87, 255, 1), size: 20),
+                        const SizedBox(width: 10),
                         Text(
                           subjects[index],
                           style: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromRGBO(50, 63, 73, 1)),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 10),
+                    // Faculty
+                    Row(
+                      children: const [
+                        Icon(Icons.person,
+                            color: Color.fromRGBO(53, 87, 255, 1), size: 20),
+                        SizedBox(width: 8),
+                        Text(
+                          'Faculty',
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromRGBO(50, 63, 73, 1)),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
                     // Faculty
                     Row(
                       children: const [
@@ -402,7 +428,26 @@ class TimelineList extends StatelessWidget {
                         SizedBox(width: 8),
                         Text(
                           'Faculty',
-                          style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromRGBO(50, 63, 73, 1)),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    // Faculty
+                    Row(
+                      children: const [
+                        Icon(Icons.person,
+                            color: Color.fromRGBO(12, 54, 255, 1), size: 20),
+                        SizedBox(width: 8),
+                        Text(
+                          'Faculty',
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromRGBO(50, 63, 73, 1)),
                         ),
                       ],
                     ),
@@ -416,7 +461,6 @@ class TimelineList extends StatelessWidget {
     );
   }
 }
-
 
 PreferredSizeWidget CustomAppBar({
   required IconData icon, // Icon to display in the leading section
@@ -432,7 +476,7 @@ PreferredSizeWidget CustomAppBar({
       },
       child: Icon(
         icon,
-        weight: 2,
+        weight: 3,
       ),
     ),
     title: Text(

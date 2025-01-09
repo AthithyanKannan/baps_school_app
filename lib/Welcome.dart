@@ -22,12 +22,12 @@ class _WelcomeState extends State<Welcome> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
-                height: 200,
+                height: 150,
               ),
               Text(
                 "BIT SCHOOLS",
                 style: TextStyle(
-                    fontSize: 45,
+                    fontSize: 37,
                     fontFamily: "DMSans-Bold",
                     fontWeight: FontWeight.bold,
                     color: Color.fromRGBO(74, 94, 109, 1)),
@@ -35,34 +35,31 @@ class _WelcomeState extends State<Welcome> {
               SizedBox(
                 height: 30,
               ),
-              // Image.asset(
-              //   'assets/logo.png',
-              //   height: 200,
-              //   width: 170,
-              // ),
-              SizedBox(
-                height: 70,
+              Image.asset(
+                'assets/login.png',
               ),
               Text(
                 'Hello !',
-                style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 10,
               ),
               Text(
                 "Welcome back! Please log in ",
-                style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               Text(
                 "to continue guiding your students",
-                style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 40,
               ),
               customButton(
-                  text: "Let's start",
+                  text: "LOGIN",
+                  fontSize: 16,
+                  backgroundColor: Color.fromRGBO(40, 66, 196, 1),
                   onPressed: () {
                     Navigator.push(
                         context,
