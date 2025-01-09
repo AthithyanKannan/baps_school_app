@@ -195,7 +195,6 @@ Widget MenuCard({
   Color iconColor = Colors.red,
 }) {
   return SizedBox(
-    height: 164,
     width: 164,
     child: Card(
       elevation: 0,
@@ -218,7 +217,7 @@ Widget MenuCard({
             Text(
               text,
               style: TextStyle(
-                fontSize: 14.0,
+                fontSize: 14,
                 fontWeight: FontWeight.bold,
                 color: Colors.black87,
                 letterSpacing: 1,
