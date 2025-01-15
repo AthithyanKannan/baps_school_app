@@ -1,11 +1,11 @@
 import 'package:baps_school_app/Widgets/widgets.dart';
 import 'package:baps_school_app/colors.dart';
-import 'package:baps_school_app/mentor/mentor_pages/mentor_activity.dart';
-import 'package:baps_school_app/mentor/mentor_pages/mentor_assesment_request.dart';
-import 'package:baps_school_app/mentor/mentor_pages/mentor_dashboard.dart';
-import 'package:baps_school_app/mentor/mentor_pages/mentor_homework.dart';
-import 'package:baps_school_app/mentor/mentor_pages/mentor_leave_approval.dart';
-import 'package:baps_school_app/mentor/mentor_pages/mentor_messages.dart';
+import 'package:baps_school_app/mentor/mentor_activity/mentor_activity.dart';
+import 'package:baps_school_app/mentor/mentor_assesment_request/mentor_assesment_request.dart';
+import 'package:baps_school_app/mentor/mentor_dashboard/mentor_dashboard.dart';
+import 'package:baps_school_app/mentor/mentor_homework/mentor_homework.dart';
+import 'package:baps_school_app/mentor/mentor_leave_approval/mentor_leave_approval.dart';
+import 'package:baps_school_app/mentor/mentor_messages/mentor_messages.dart';
 import 'package:flutter/material.dart';
 
 class MentorHome extends StatefulWidget {
